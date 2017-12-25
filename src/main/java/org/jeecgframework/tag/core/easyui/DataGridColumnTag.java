@@ -55,13 +55,11 @@ public class DataGridColumnTag extends TagSupport {
 	private String extendParams;//扩展参数
 	private String langArg;
 	protected String editor;//高级查询用的编辑器
-	private String onblur;//编辑后
 	private String defaultVal = "";//列默认值
-
 	protected String showMode;//表单元素,查询表单中显示样式,默认样式select
 
 	protected boolean newColumn = false;//是否新起一行
-	
+
 	public boolean isNewColumn() {
 		return newColumn;
 	}
@@ -257,11 +255,4 @@ public class DataGridColumnTag extends TagSupport {
 		this.defaultVal = defaultVal;
 	}
 
-	public String getOnblur() {
-		return onblur;
-	}
-
-	public void setOnblur(String onblur) {
-		this.onblur = onblur;
-	}
 }

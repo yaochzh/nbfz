@@ -32,64 +32,64 @@
 
 
             <t:dgCol title="A1"  field="spinag" queryMode="group" formatterjs="fix2"  extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="A2"  field="spinah" queryMode="group"  formatterjs="fix3"  extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="B1"  field="spinai" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="50"></t:dgCol>
+            <t:dgCol title="A2"  field="spinah" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="50"></t:dgCol>
+            <t:dgCol title="B1"  field="spinai" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="50"></t:dgCol>
             <t:dgCol title="B2"  field="spinaj" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="50"></t:dgCol>
             <t:dgCol title="C"  field="spinak" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="50"></t:dgCol>
 
 
 
 
-            <t:dgCol title="辅料"  field="spinam" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="包装"  field="spinan" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="印花"  field="spinao" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="绣花"  field="spinap" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="其他"  field="spinaq" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+            <t:dgCol title="辅料"  field="spinam" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="50"></t:dgCol>
+            <t:dgCol title="包装"  field="spinan" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="50"></t:dgCol>
+            <t:dgCol title="印花"  field="spinao" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="50"></t:dgCol>
+            <t:dgCol title="绣花"  field="spinap" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="50"></t:dgCol>
+            <t:dgCol title="其他"  field="spinaq" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="50"></t:dgCol>
 
 
-            <t:dgCol title="成本合计"  field="spinar" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="本区域工价"  field="spinas" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
+            <t:dgCol title="成本合计"  field="spinar" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="58"></t:dgCol>
+            <t:dgCol title="本区域工价"  field="spinas" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="58"></t:dgCol>
 
 
             <t:dgCol title="区域系数"  field="spinat" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
             <t:dgCol title="工厂系数"  field="spinau" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="系数工价"  field="spinav" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
+            <t:dgCol title="系数工价"  field="spinav" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="58"></t:dgCol>
             <t:dgCol title="利税"  field="spinaw" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="总价"  field="spinax" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="总差价"  field="spinay" queryMode="group"   extendParams="editor:'text'" width="60"></t:dgCol>
-            <t:dgCol title="税后差价"  field="spinaz" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="税后毛利"  field="spinaaa" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
+            <t:dgCol title="总价"  field="spinax" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="50"></t:dgCol>
+            <t:dgCol title="总差价"  field="spinay" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="60"></t:dgCol>
+            <t:dgCol title="税后差价"  field="spinaz" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="58"></t:dgCol>
+            <t:dgCol title="税后毛利"  field="spinaaa" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="58"></t:dgCol>
             <t:dgCol title="利息"  field="spinaab" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
             <t:dgCol title="税后利率"  field="spinaac" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
 
 
-            <t:dgCol title="工厂系数"  field="spinaad" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="系数工价"  field="spinaae" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
+            <t:dgCol title="工厂系数"  field="spinaad" queryMode="group"  formatterjs="fix1"  extendParams="editor:'text'" width="58"></t:dgCol>
+            <t:dgCol title="系数工价"  field="spinaae" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="58"></t:dgCol>
             <t:dgCol title="利税"  field="spinaaf" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="总价"  field="spinaag" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="总差价"  field="spinaah" queryMode="group"   extendParams="editor:'text'" width="60"></t:dgCol>
-            <t:dgCol title="税后差价"  field="spinaai" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="税后毛利"  field="spinaaj" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
+            <t:dgCol title="总价"  field="spinaag" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="50"></t:dgCol>
+            <t:dgCol title="总差价"  field="spinaah" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="60"></t:dgCol>
+            <t:dgCol title="税后差价"  field="spinaai" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="58"></t:dgCol>
+            <t:dgCol title="税后毛利"  field="spinaaj" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="58"></t:dgCol>
             <t:dgCol title="利息"  field="spinaak" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
             <t:dgCol title="税后利率"  field="spinaal" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
 
 
-            <t:dgCol title="基本工价"  field="spinaam" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="工厂系数"  field="spinaan" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="系数工价"  field="spinaao" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
+            <t:dgCol title="基本工价"  field="spinaam" queryMode="group" formatterjs="fix2" 	  extendParams="editor:'text'" width="58"></t:dgCol>
+            <t:dgCol title="工厂系数"  field="spinaan" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="58"></t:dgCol>
+            <t:dgCol title="系数工价"  field="spinaao" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="58"></t:dgCol>
             <t:dgCol title="利税"  field="spinaap" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="总价"  field="spinaaq" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="总差价"  field="spinaar" queryMode="group"   extendParams="editor:'text'" width="60"></t:dgCol>
-            <t:dgCol title="税后差价"  field="spinaas" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="税后毛利"  field="spinaat" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
+            <t:dgCol title="总价"  field="spinaaq" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="50"></t:dgCol>
+            <t:dgCol title="总差价"  field="spinaar" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="60"></t:dgCol>
+            <t:dgCol title="税后差价"  field="spinaas" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="58"></t:dgCol>
+            <t:dgCol title="税后毛利"  field="spinaat" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="58"></t:dgCol>
             <t:dgCol title="利息"  field="spinaau" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
             <t:dgCol title="税后利率"  field="spinaav" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
 
 
-            <t:dgCol title="折汇率"  field="spinaaw" queryMode="group"   extendParams="editor:'text'" width="60"></t:dgCol>
-            <t:dgCol title="1"  field="spinaax" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="2"  field="spinaay" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="A"  field="spinaaz" queryMode="group"   extendParams="editor:'text'" extend="{style:'width:34'}" width="50"></t:dgCol>
+            <t:dgCol title="折汇率"  field="spinaaw" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="60"></t:dgCol>
+            <t:dgCol title="1"  field="spinaax" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="50"></t:dgCol>
+            <t:dgCol title="2"  field="spinaay" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="50"></t:dgCol>
+            <t:dgCol title="A"  field="spinaaz" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" extend="{style:'width:34'}" width="50"></t:dgCol>
 
             <t:dgCol title="日期"  field="spinaba" queryMode="group"   formatter="yyyy-MM-dd" extendParams="editor:'datebox'" width="50"></t:dgCol>
             <t:dgCol title="1"  field="spinabb" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>

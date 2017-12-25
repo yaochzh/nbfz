@@ -48,7 +48,7 @@ public class DataGridColumn {
 	protected String showMode;//表单元素,查询表单中显示样式,默认样式select	
 
 	protected boolean newColumn;
-	
+
 	public boolean isNewColumn() {
 		return newColumn;
 	}

@@ -1,34 +1,11 @@
 package org.jeecgframework.tag.core.easyui;
 
-import java.io.IOException;
-import java.text.MessageFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.JspTagException;
-import javax.servlet.jsp.JspWriter;
-
+import com.google.gson.Gson;
 import net.sf.json.JSONObject;
-
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.jeecgframework.core.constant.Globals;
-import org.jeecgframework.core.util.ApplicationContextUtil;
-import org.jeecgframework.core.util.ContextHolderUtils;
-import org.jeecgframework.core.util.MutiLangUtil;
-import org.jeecgframework.core.util.ResourceUtil;
-import org.jeecgframework.core.util.StringUtil;
-import org.jeecgframework.core.util.SysThemesUtil;
-import org.jeecgframework.core.util.oConvertUtils;
+import org.jeecgframework.core.util.*;
 import org.jeecgframework.tag.core.JeecgTag;
 import org.jeecgframework.tag.vo.easyui.ColumnValue;
 import org.jeecgframework.tag.vo.easyui.DataGridColumn;
@@ -39,7 +16,14 @@ import org.jeecgframework.web.system.pojo.base.TSType;
 import org.jeecgframework.web.system.service.SystemService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.google.gson.Gson;
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspTagException;
+import javax.servlet.jsp.JspWriter;
+import java.io.IOException;
+import java.text.MessageFormat;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 /**
@@ -2328,8 +2312,8 @@ public class DataGridTag extends JeecgTag {
 				sb.append(",rowspan:" + column.getRowspan());
 			}
 			if(StringUtils.isNotEmpty(column.getExtendParams())){
-
-				if(column.getExtendParams().indexOf("editor:'combobox'")>-1){//倘若扩展参数中包含editor:'combobox'
+//倘若扩展参数中包含editor:'combobox'
+				if(column.getExtendParams().indexOf("editor:'combobox'")>-1){
 					StringBuffer comboboxStr =new StringBuffer();//声明一个替换扩展参数中的editor:'combobox'的变量
 					if(!StringUtil.isEmpty(column.getDictionary())){//根据数据字典生成editor:'combobox'
 						if(column.getDictionary().contains(",")){
