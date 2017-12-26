@@ -1,6 +1,7 @@
 package com.jeecg.nbfz.service.impl;
 import com.jeecg.nbfz.entity.BdSpinEntity;
 import com.jeecg.nbfz.service.BdSpinServiceI;
+import com.jeecg.utils.DoubleUtil;
 import org.jeecgframework.core.common.service.impl.CommonServiceImpl;
 import org.jeecgframework.core.util.ApplicationContextUtil;
 import org.jeecgframework.core.util.MyClassLoader;
@@ -18,75 +19,293 @@ import java.util.UUID;
 @Transactional
 public class BdSpinServiceImpl extends CommonServiceImpl implements BdSpinServiceI {
 
-	
- 	@Override
+
+	@Override
 	public void delete(BdSpinEntity entity) throws Exception{
- 		super.delete(entity);
- 		//执行删除操作增强业务
+		super.delete(entity);
+		//执行删除操作增强业务
 		this.doDelBus(entity);
- 	}
+	}
 
 	@Override
- 	public Serializable save(BdSpinEntity entity) throws Exception{
- 		Serializable t = super.save(entity);
- 		//执行新增操作增强业务
- 		this.doAddBus(entity);
- 		return t;
- 	}
+	public Serializable save(BdSpinEntity entity) throws Exception{
+		Serializable t = super.save(entity);
+		//执行新增操作增强业务
+		this.doAddBus(entity);
+		return t;
+	}
 
 	@Override
- 	public void saveOrUpdate(BdSpinEntity entity) throws Exception{
- 		super.saveOrUpdate(entity);
- 		//执行更新操作增强业务
- 		this.doUpdateBus(entity);
- 	}
- 	
- 	/**
+	public void saveOrUpdate(BdSpinEntity entity) throws Exception{
+		super.saveOrUpdate(entity);
+		//执行更新操作增强业务
+		this.doUpdateBus(entity);
+	}
+
+	/**
 	 * 新增操作增强业务
 	 * @param t
 	 * @return
 	 */
 	private void doAddBus(BdSpinEntity t) throws Exception{
 		//-----------------sql增强 start----------------------------
-	 	//-----------------sql增强 end------------------------------
-	 	
-	 	//-----------------java增强 start---------------------------
-	 	//-----------------java增强 end-----------------------------
- 	}
- 	/**
+		//-----------------sql增强 end------------------------------
+		calculate(t);
+		//-----------------java增强 start---------------------------
+		//-----------------java增强 end-----------------------------
+	}
+	/**
 	 * 更新操作增强业务
 	 * @param t
 	 * @return
 	 */
 	private void doUpdateBus(BdSpinEntity t) throws Exception{
 		//-----------------sql增强 start----------------------------
-	 	//-----------------sql增强 end------------------------------
-	 	this.calculate(t);
-	 	//-----------------java增强 start---------------------------
-	 	//-----------------java增强 end-----------------------------
- 	}
-
+		//-----------------sql增强 end------------------------------
+		calculate(t);
+		//-----------------java增强 start---------------------------
+		//-----------------java增强 end-----------------------------
+	}
 	/**
 	 * 逻辑计算
 	 * @param t
 	 */
 	private void calculate(BdSpinEntity t) {
-	}
+		////////////////////////////////////////汇总A
+		//R=G4+H4+I4+J4+K4+L4+M4+N4+O4+P4+Q4
+		if(DoubleUtil.isOK(t.getSpinag(),t.getSpingh(),t.getSpinai(),t.getSpinaj(),t.getSpinak(),t.getSpinal(),t.getSpinam(),t.getSpinan(),t.getSpinao(),t.getSpinap(),t.getSpinaq())) {
+			t.setSpinar(DoubleUtil.add(t.getSpinag(), t.getSpingh(), t.getSpinai(), t.getSpinaj(), t.getSpinak(), t.getSpinal(), t.getSpinam(), t.getSpinan(), t.getSpinao(), t.getSpinap(), t.getSpinaq()));
+		}
+		//v=S4*T4*U4
+		if(DoubleUtil.isOK(t.getSpinas(),t.getSpinat(),t.getSpinau())) {
+			t.setSpinav(DoubleUtil.mul(t.getSpinas(), t.getSpinat(), t.getSpinau()));
+		}
+		//x=(R4+V4)/(1-W4)
+		if(DoubleUtil.isOK(t.getSpinar(), t.getSpinav(),t.getSpinaw())) {
+			t.setSpinax(DoubleUtil.div(DoubleUtil.add(t.getSpinar(), t.getSpinav()), DoubleUtil.sub(1, t.getSpinaw()), 2));
+		}
+		//y=X4-R4
+		if(DoubleUtil.isOK(t.getSpinax(), t.getSpinar())) {
+			t.setSpinay(DoubleUtil.sub(t.getSpinax(), t.getSpinar()));
+		}
+		//z=Y4-Y4/1.17*0.17
+		if(DoubleUtil.isOK(t.getSpinay(),t.getSpinay())) {
+			t.setSpinaz(DoubleUtil.sub(t.getSpinay(), DoubleUtil.mul(DoubleUtil.div(t.getSpinay(), 1.17), 0.17)));
+		}
+		//aa==Z4-V4-X4*AB4
+		if(DoubleUtil.isOK(t.getSpinaz(), t.getSpinav(),t.getSpinax(), t.getSpinaab())) {
+			t.setSpinaaa(DoubleUtil.sub(DoubleUtil.sub(t.getSpinaz(), t.getSpinav()), DoubleUtil.mul(t.getSpinax(), t.getSpinaab())));
+		}
+		//ac=AA4/X4
+		if(DoubleUtil.isOK(t.getSpinaaa(), t.getSpinax())) {
+			t.setSpinaac(DoubleUtil.div(t.getSpinaaa(), t.getSpinax()));
+		}
+		//ae=S4*AD4
+		if(DoubleUtil.isOK(t.getSpinas(), t.getSpinaad())) {
+			t.setSpinaae(DoubleUtil.mul(t.getSpinas(), t.getSpinaad()));
+		}
+		//ag=(R4+AE4)/(1-AF4)
+		if(DoubleUtil.isOK(t.getSpinar(), t.getSpinaae(),t.getSpinaaf())) {
+			t.setSpinaag(DoubleUtil.div(DoubleUtil.add(t.getSpinar(), t.getSpinaae()), DoubleUtil.sub(1, t.getSpinaaf()), 2));
+		}
+		//ah=AG4-R4
+		if(DoubleUtil.isOK(t.getSpinaag(), t.getSpinar())) {
+			t.setSpinaah(DoubleUtil.sub(t.getSpinaag(), t.getSpinar()));
+		}
+		//ai=AH4-AH4/1.17*0.17
+		if(DoubleUtil.isOK(t.getSpinaah(),t.getSpinaah())) {
+			t.setSpinaai(DoubleUtil.sub(t.getSpinaah(), DoubleUtil.mul(DoubleUtil.div(t.getSpinaah(), 1.17), 0.17)));
+		}
+		//aj=AI4-AE4-AG4*AK4
+		if(DoubleUtil.isOK(t.getSpinaai(), t.getSpinaae(),t.getSpinaag(), t.getSpinaak())) {
+			t.setSpinaaj(DoubleUtil.sub(DoubleUtil.sub(t.getSpinaai(), t.getSpinaae()), DoubleUtil.mul(t.getSpinaag(), t.getSpinaak())));
+		}
+		//al=AJ4/AG4
+		if(DoubleUtil.isOK(t.getSpinaaj(), t.getSpinaag())) {
+			t.setSpinaal(DoubleUtil.div(t.getSpinaaj(), t.getSpinaag(), 2));
+		}
+		//am=AO4/AN4
+		if(DoubleUtil.isOK(t.getSpinaao(), t.getSpinaan())) {
+			t.setSpinaam(DoubleUtil.div(t.getSpinaao(), t.getSpinaan(), 2));
+		}
+		//aq=(R4+AO4)/(1-AP4)
+		if(DoubleUtil.isOK(t.getSpinar(), t.getSpinaao(),t.getSpinaap())) {
+			t.setSpinaaq(DoubleUtil.div(DoubleUtil.add(t.getSpinar(), t.getSpinaao()), DoubleUtil.sub(1, t.getSpinaap()), 2));
+		}
+		//ar=AQ4-R4
+		if(DoubleUtil.isOK(t.getSpinaaq(), t.getSpinar())) {
+			t.setSpinaar(DoubleUtil.sub(t.getSpinaaq(), t.getSpinar()));
+		}
+		//as=AR4-AR4/1.17*0.17
+		if(DoubleUtil.isOK(t.getSpinaar(),t.getSpinaar())) {
+			t.setSpinaas(DoubleUtil.sub(t.getSpinaar(), DoubleUtil.mul(DoubleUtil.div(t.getSpinaar(), 1.17), 0.17)));
+		}
+		//at=AS4-AO4-(AG4*AU4)
+		if(DoubleUtil.isOK(t.getSpinaas(), t.getSpinaao(),t.getSpinaag(), t.getSpinaau())) {
+			t.setSpinaat(DoubleUtil.sub(DoubleUtil.sub(t.getSpinaas(), t.getSpinaao()), DoubleUtil.mul(t.getSpinaag(), t.getSpinaau())));
+		}
+		//av=AT4/AQ4
+		if(DoubleUtil.isOK(t.getSpinaat(), t.getSpinaaq())) {
+			t.setSpinaav(DoubleUtil.div(t.getSpinaat(), t.getSpinaaq()));
+		}
+		//ax=X4/AW4
+		if(DoubleUtil.isOK(t.getSpinax(), t.getSpinaaw())) {
+			t.setSpinaax(DoubleUtil.div(t.getSpinax(), t.getSpinaaw(), 2));
+		}
+		//ay=AG4/AW4
+		if(DoubleUtil.isOK(t.getSpinaag(), t.getSpinaaw())) {
+			t.setSpinaay(DoubleUtil.div(t.getSpinaag(), t.getSpinaaw(), 2));
+		}
+		//aaz=AQ4/AW4
+		if(DoubleUtil.isOK(t.getSpinaaq(), t.getSpinaaw())) {
+			t.setSpinaaz(DoubleUtil.div(t.getSpinaaq(), t.getSpinaaw(), 2));
+		}
+		//////////////////////////////////里面料汇总B
+		//bh=F4/E4*100/(1-G4)
+		if(DoubleUtil.isOK(t.getSpinbf(), t.getSpinbe(), t.getSpinbg())) {
+			t.setSpinbh(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.div(t.getSpinbf(), t.getSpinbe()), 100), DoubleUtil.sub(1, t.getSpinbg()), 2));
+		}
+		//bj=H4*I4
+		if(DoubleUtil.isOK(t.getSpinbh(), t.getSpinbi())) {
+			t.setSpinbj(DoubleUtil.mul(t.getSpinbh(), t.getSpinbi()));
+		}
+		//bn=L4/K4*100/(1-M4)
+		if(DoubleUtil.isOK(t.getSpinbl(), t.getSpinbk(),t.getSpinbm())) {
+			t.setSpinbn(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.div(t.getSpinbl(), t.getSpinbk()), 100), DoubleUtil.sub(1, t.getSpinbm()), 2));
+		}
+		//bp=N4*O4
+		if(DoubleUtil.isOK(t.getSpinbn(),t.getSpinbo())) {
+		t.setSpinbp(DoubleUtil.mul(t.getSpinbn(),t.getSpinbo()));
+		}
+		//bt=R4/Q4*100/(1-S4)
+		if(DoubleUtil.isOK(t.getSpinbr(), t.getSpinbq(), t.getSpinbs())) {
+			t.setSpinbt(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.div(t.getSpinbr(), t.getSpinbq()), 100), DoubleUtil.sub(1, t.getSpinbs()), 2));
+		}
+		//bv=T4*U4
+		if(DoubleUtil.isOK(t.getSpinbt(), t.getSpinbu())) {
+			t.setSpinbv(DoubleUtil.mul(t.getSpinbt(), t.getSpinbu()));
+		}
+		//bz=X4/W4*100/(1-Y4)
+		if(DoubleUtil.isOK(t.getSpinbx(), t.getSpinbw(), t.getSpinby())) {
+			t.setSpinbz(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.div(t.getSpinbx(), t.getSpinbw()), 100), DoubleUtil.sub(1, t.getSpinby()), 2));
+		}
+		//bab=Z4*AA4
+		if(DoubleUtil.isOK(t.getSpinbz(), t.getSpinbaa())) {
+			t.setSpinbab(DoubleUtil.mul(t.getSpinbz(), t.getSpinbaa()));
+		}
+		//baf=AD4*AC4/1000/(1-AE4)
+		if(DoubleUtil.isOK(t.getSpinbad(), t.getSpinbac(),t.getSpinbae())) {
+			t.setSpinbaf(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.div(t.getSpinbad(), t.getSpinbac()), 100), DoubleUtil.sub(1, t.getSpinbae()), 2));
+		}
+		//bah=AF4*AG4
+		if(DoubleUtil.isOK(t.getSpinbaf(), t.getSpinbag())) {
+			t.setSpinbah(DoubleUtil.mul(t.getSpinbaf(), t.getSpinbag()));
+		}
+		////////////////////////////////////////面料1用量c
+		//cj=(F4+2-G4)*(H4+5)/10000*I4
+		if(DoubleUtil.isOK(t.getSpincf(), t.getSpincg(),t.getSpinch(),t.getSpinci())) {
+			t.setSpincj(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.sub(DoubleUtil.add(t.getSpincf(), 2), t.getSpincg()), DoubleUtil.add(t.getSpinch(), 5)), 10000, 2), t.getSpinci()));
+		}
+		//co=(K4+2-L4)*(M4+2)/10000*N4
+		if(DoubleUtil.isOK(t.getSpinck(), t.getSpincl(),t.getSpincm(),t.getSpincn())) {
+			t.setSpinco(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.sub(DoubleUtil.add(t.getSpinck(), 2), t.getSpincl()), DoubleUtil.add(t.getSpincm(), 2)), 10000, 2), t.getSpincn()));
+		}
+		//cs=(P4+2)*(Q4+4)/10000*R4
+		if(DoubleUtil.isOK(t.getSpincp(),t.getSpincq(),t.getSpincr())) {
+			t.setSpincs(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.add(t.getSpincp(), 2), DoubleUtil.add(t.getSpincq(), 4)), 10000, 2), t.getSpincr()));
+		}
+		//cw=(T4+4)*(U4+3)/10000*V4
+		if(DoubleUtil.isOK(t.getSpinct(),t.getSpincu(),t.getSpincv())) {
+			t.setSpincw(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.add(t.getSpinct(), 4), DoubleUtil.add(t.getSpincu(), 3)), 10000, 2), t.getSpincv()));
+		}
+		//caa=(X4+2)*(Y4+2)/10000*Z4
+		if(DoubleUtil.isOK(t.getSpincx(),t.getSpincy(),t.getSpincz())) {
+			t.setSpincaa(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.add(t.getSpincx(), 2), DoubleUtil.add(t.getSpincy(), 2)), 10000, 2), t.getSpincz()));
+		}
+		//cae=(AB4+2)*(AC4+2)/10000*AD4
+		if(DoubleUtil.isOK(t.getSpincab(),t.getSpincac(),t.getSpincad())) {
+			t.setSpincae(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.add(t.getSpincab(), 2), DoubleUtil.add(t.getSpincac(), 2)), 10000, 2), t.getSpincad()));
+		}
+		//cai=(AF4+2)*(AG4+2)/10000*AH4
+		if(DoubleUtil.isOK(t.getSpincaf(),t.getSpincag(), t.getSpincah())) {
+			t.setSpincai(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.add(t.getSpincaf(), 2), DoubleUtil.add(t.getSpincag(), 2)), 10000, 2), t.getSpincah()));
+		}
+		//can=(AJ4+5-AK4)*(AL4+1)/10000*AM4
+		if(DoubleUtil.isOK(t.getSpincaj(), t.getSpincak(),t.getSpincal())) {
+			t.setSpincan(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.sub(DoubleUtil.add(t.getSpincaj(), 5), t.getSpincak()), DoubleUtil.add(t.getSpincal(), 4)), 10000, 2), t.getSpincam()));
+		}
+		//car=AP4+AQ4
+		if(DoubleUtil.isOK(t.getSpincap(), t.getSpincaq())) {
+			t.setSpincar(DoubleUtil.add(t.getSpincap(), t.getSpincaq()));
+		}
+		//cas=(J4+O4+S4+W4+AA4+AE4+AI4+AN4)*(1+AO4)/(1-AR4/100)
+		if(DoubleUtil.isOK(t.getSpincj(), t.getSpinco(), t.getSpincs(), t.getSpincw(), t.getSpincaa(), t.getSpincae(), t.getSpincai(), t.getSpincan(), t.getSpincao(),t.getSpincar())) {
+			t.setSpincas(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.add(t.getSpincj(), t.getSpinco(), t.getSpincs(), t.getSpincw(), t.getSpincaa(), t.getSpincae(), t.getSpincai(), t.getSpincan()), DoubleUtil.add(1, t.getSpincao())), DoubleUtil.sub(1, DoubleUtil.div(t.getSpincar(), 100, 2))));
+		}
+		////////////////////////////////////////面料2用量D
+		//dj=(F4+2-G4)*(H4+5)/10000*I4
+		t.setSpindj(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.sub(DoubleUtil.add(t.getSpindf(),2),t.getSpindg()),DoubleUtil.add(t.getSpindh(),5)),10000,2),t.getSpindi()));
+		//do=(K4+2-L4)*(M4+2)/10000*N4
+		t.setSpindo(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.sub(DoubleUtil.add(t.getSpindk(),2),t.getSpindl()),DoubleUtil.add(t.getSpindm(),2)),10000,2),t.getSpindn()));
+		//ds=(P4+2)*(Q4+4)/10000*R4
+		t.setSpinds(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.add(t.getSpindp(),2),DoubleUtil.add(t.getSpindq(),4)),10000,2),t.getSpindr()));
+		//dm=(T4+4)*(U4+3)/10000*V4
+		t.setSpindm(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.add(t.getSpindt(),4),DoubleUtil.add(t.getSpindu(),3)),10000,2),t.getSpindv()));
+		//daa=Y4+Z4
+		t.setSpindaa(DoubleUtil.add(t.getSpindy(),t.getSpindz()));
+		//dab=(J4+O4+S4+W4)*(1+X4)/(1-AA4/100)
+		t.setSpindab(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.add(t.getSpindj(),t.getSpindo(),t.getSpinds(),t.getSpindw()),DoubleUtil.add(1,t.getSpindx())),DoubleUtil.sub(1,DoubleUtil.div(t.getSpindaa(),100,2)),2));
+		////////////////////////////////////////里料1用量E
+		//ej=(F4+2-G4)*(H4+5)/10000*I4
+		t.setSpinej(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.sub(DoubleUtil.add(t.getSpinef(),2),t.getSpineg()),DoubleUtil.add(t.getSpineh(),5)),10000,2),t.getSpinei()));
+		//eo=(K4+2-L4)*(M4+2)/10000*N4
+		t.setSpineo(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.sub(DoubleUtil.add(t.getSpinek(),2),t.getSpinel()),DoubleUtil.add(t.getSpinem(),2)),10000,2),t.getSpinen()));
+		//es=(P4+2)*(Q4+4)/10000*R4
+		t.setSpines(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.add(t.getSpinep(),2),DoubleUtil.add(t.getSpineq(),4)),10000,2),t.getSpiner()));
+		//ew=(T4+4)*(U4+3)/10000*V4
+		t.setSpinem(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.add(t.getSpinet(),4),DoubleUtil.add(t.getSpineu(),3)),10000,2),t.getSpinev()));
+		//eaa=(X4+2)*(Y4+2)/10000*Z4
+		t.setSpineaa(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.add(t.getSpinex(),2),DoubleUtil.add(t.getSpiney(),2)),10000,2),t.getSpinez()));
+		//eae=(AB4+2)*(AC4+2)/10000*AD4
+		t.setSpineae(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.add(t.getSpineab(),2),DoubleUtil.add(t.getSpineac(),2)),10000,2),t.getSpinead()));
+		//eai=(AF4+2)*(AG4+2)/10000*AH4
+		t.setSpineai(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.add(t.getSpineaf(),2),DoubleUtil.add(t.getSpineag(),2)),10000,2),t.getSpineah()));
+		//ean=(AJ4+5-AK4)*(AL4+1)/10000*AM4
+		t.setSpinean(DoubleUtil.mul(DoubleUtil.div(DoubleUtil.mul(DoubleUtil.sub(DoubleUtil.add(t.getSpineaj(),5),t.getSpineak()),DoubleUtil.add(t.getSpineal(),1)),10000,2),t.getSpineam()));
+		//ear=AP4+AQ4
+		t.setSpinear(DoubleUtil.add(t.getSpineap(),t.getSpineaq()));
+		//eas=(J4+O4+S4+W4+AA4+AE4+AI4+AN4)*(1+AO4)/(1-AR4/100)
 
+		////////////////////////////////////////里料2用量F
+		//fj=(F4+2-G4)*(H4+5)/10000*I4
+		//fo=(K4+2-L4)*(M4+2)/10000*N4
+		//fs=(P4+2)*(Q4+4)/10000*R4
+		//fw=(T4+4)*(U4+3)/10000*V4
+		//faa=Y4+Z4
+		//fab=(J4+O4+S4+W4)*(1+X4)/(1-AA4/100)
+
+		////////////////////////////////////////螺纹用量
+		//gi=(F4+4)*(G4*2+2.5)/10000*H4
+		//gm=(J4+4)*2*(K4*2+2.5)/10000*L4
+		//gq=(N4+2)*2*(O4*2+2.5)/10000*P4
+		//gu=S4+T4
+		//gv=(I4+M4+Q4)*(1+R4)/(1-U4/100)
+		////////////////////////////////////////辅料汇总
+	}
 	/**
 	 * 删除操作增强业务
+	 * @param t
 	 * @return
 	 */
 	private void doDelBus(BdSpinEntity t) throws Exception{
-	    //-----------------sql增强 start----------------------------
-	 	//-----------------sql增强 end------------------------------
+		//-----------------sql增强 start----------------------------
+		//-----------------sql增强 end------------------------------
 
-		this.calculate(t);
-	 	//-----------------java增强 start---------------------------
-	 	//-----------------java增强 end-----------------------------
- 	}
- 	
- 	private Map<String,Object> populationMap(BdSpinEntity t){
+		//-----------------java增强 start---------------------------
+		//-----------------java增强 end-----------------------------
+	}
+
+	private Map<String,Object> populationMap(BdSpinEntity t){
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("id", t.getId());
 		map.put("create_name", t.getCreateName());
@@ -98,6 +317,8 @@ public class BdSpinServiceImpl extends CommonServiceImpl implements BdSpinServic
 		map.put("sys_org_code", t.getSysOrgCode());
 		map.put("sys_company_code", t.getSysCompanyCode());
 		map.put("bpm_status", t.getBpmStatus());
+		map.put("mllx", t.getMllx());
+		map.put("ccdw", t.getCcdw());
 		map.put("spinaa", t.getSpinaa());
 		map.put("spinab", t.getSpinab());
 		map.put("spinac", t.getSpinac());
@@ -362,303 +583,301 @@ public class BdSpinServiceImpl extends CommonServiceImpl implements BdSpinServic
 		map.put("spinhad", t.getSpinhad());
 		map.put("spinhae", t.getSpinhae());
 		map.put("spinhaf", t.getSpinhaf());
-        map.put("mllx", t.getMllx());
-        map.put("ccdw", t.getCcdw());
 		return map;
 	}
- 	
- 	/**
+
+	/**
 	 * 替换sql中的变量
 	 * @param sql
 	 * @param t
 	 * @return
 	 */
- 	public String replaceVal(String sql,BdSpinEntity t){
- 		sql  = sql.replace("#{id}",String.valueOf(t.getId()));
- 		sql  = sql.replace("#{create_name}",String.valueOf(t.getCreateName()));
- 		sql  = sql.replace("#{create_by}",String.valueOf(t.getCreateBy()));
- 		sql  = sql.replace("#{create_date}",String.valueOf(t.getCreateDate()));
- 		sql  = sql.replace("#{update_name}",String.valueOf(t.getUpdateName()));
- 		sql  = sql.replace("#{update_by}",String.valueOf(t.getUpdateBy()));
- 		sql  = sql.replace("#{update_date}",String.valueOf(t.getUpdateDate()));
- 		sql  = sql.replace("#{sys_org_code}",String.valueOf(t.getSysOrgCode()));
- 		sql  = sql.replace("#{sys_company_code}",String.valueOf(t.getSysCompanyCode()));
- 		sql  = sql.replace("#{bpm_status}",String.valueOf(t.getBpmStatus()));
- 		sql  = sql.replace("#{spinaa}",String.valueOf(t.getSpinaa()));
- 		sql  = sql.replace("#{spinab}",String.valueOf(t.getSpinab()));
- 		sql  = sql.replace("#{spinac}",String.valueOf(t.getSpinac()));
- 		sql  = sql.replace("#{spinad}",String.valueOf(t.getSpinad()));
- 		sql  = sql.replace("#{spinae}",String.valueOf(t.getSpinae()));
- 		sql  = sql.replace("#{spinaf}",String.valueOf(t.getSpinaf()));
- 		sql  = sql.replace("#{spinag}",String.valueOf(t.getSpinag()));
- 		sql  = sql.replace("#{spinah}",String.valueOf(t.getSpinah()));
- 		sql  = sql.replace("#{spinai}",String.valueOf(t.getSpinai()));
- 		sql  = sql.replace("#{spinaj}",String.valueOf(t.getSpinaj()));
- 		sql  = sql.replace("#{spinak}",String.valueOf(t.getSpinak()));
- 		sql  = sql.replace("#{spinal}",String.valueOf(t.getSpinal()));
- 		sql  = sql.replace("#{spinam}",String.valueOf(t.getSpinam()));
- 		sql  = sql.replace("#{spinan}",String.valueOf(t.getSpinan()));
- 		sql  = sql.replace("#{spinao}",String.valueOf(t.getSpinao()));
- 		sql  = sql.replace("#{spinap}",String.valueOf(t.getSpinap()));
- 		sql  = sql.replace("#{spinaq}",String.valueOf(t.getSpinaq()));
- 		sql  = sql.replace("#{spinar}",String.valueOf(t.getSpinar()));
- 		sql  = sql.replace("#{spinas}",String.valueOf(t.getSpinas()));
- 		sql  = sql.replace("#{spinat}",String.valueOf(t.getSpinat()));
- 		sql  = sql.replace("#{spinau}",String.valueOf(t.getSpinau()));
- 		sql  = sql.replace("#{spinav}",String.valueOf(t.getSpinav()));
- 		sql  = sql.replace("#{spinaw}",String.valueOf(t.getSpinaw()));
- 		sql  = sql.replace("#{spinax}",String.valueOf(t.getSpinax()));
- 		sql  = sql.replace("#{spinay}",String.valueOf(t.getSpinay()));
- 		sql  = sql.replace("#{spinaz}",String.valueOf(t.getSpinaz()));
- 		sql  = sql.replace("#{spinaaa}",String.valueOf(t.getSpinaaa()));
- 		sql  = sql.replace("#{spinaab}",String.valueOf(t.getSpinaab()));
- 		sql  = sql.replace("#{spinaac}",String.valueOf(t.getSpinaac()));
- 		sql  = sql.replace("#{spinaad}",String.valueOf(t.getSpinaad()));
- 		sql  = sql.replace("#{spinaae}",String.valueOf(t.getSpinaae()));
- 		sql  = sql.replace("#{spinaaf}",String.valueOf(t.getSpinaaf()));
- 		sql  = sql.replace("#{spinaag}",String.valueOf(t.getSpinaag()));
- 		sql  = sql.replace("#{spinaah}",String.valueOf(t.getSpinaah()));
- 		sql  = sql.replace("#{spinaai}",String.valueOf(t.getSpinaai()));
- 		sql  = sql.replace("#{spinaaj}",String.valueOf(t.getSpinaaj()));
- 		sql  = sql.replace("#{spinaak}",String.valueOf(t.getSpinaak()));
- 		sql  = sql.replace("#{spinaal}",String.valueOf(t.getSpinaal()));
- 		sql  = sql.replace("#{spinaam}",String.valueOf(t.getSpinaam()));
- 		sql  = sql.replace("#{spinaan}",String.valueOf(t.getSpinaan()));
- 		sql  = sql.replace("#{spinaao}",String.valueOf(t.getSpinaao()));
- 		sql  = sql.replace("#{spinaap}",String.valueOf(t.getSpinaap()));
- 		sql  = sql.replace("#{spinaaq}",String.valueOf(t.getSpinaaq()));
- 		sql  = sql.replace("#{spinaar}",String.valueOf(t.getSpinaar()));
- 		sql  = sql.replace("#{spinaas}",String.valueOf(t.getSpinaas()));
- 		sql  = sql.replace("#{spinaat}",String.valueOf(t.getSpinaat()));
- 		sql  = sql.replace("#{spinaau}",String.valueOf(t.getSpinaau()));
- 		sql  = sql.replace("#{spinaav}",String.valueOf(t.getSpinaav()));
- 		sql  = sql.replace("#{spinaaw}",String.valueOf(t.getSpinaaw()));
- 		sql  = sql.replace("#{spinaax}",String.valueOf(t.getSpinaax()));
- 		sql  = sql.replace("#{spinaay}",String.valueOf(t.getSpinaay()));
- 		sql  = sql.replace("#{spinaaz}",String.valueOf(t.getSpinaaz()));
- 		sql  = sql.replace("#{spinaba}",String.valueOf(t.getSpinaba()));
- 		sql  = sql.replace("#{spinabb}",String.valueOf(t.getSpinabb()));
- 		sql  = sql.replace("#{spinabc}",String.valueOf(t.getSpinabc()));
- 		sql  = sql.replace("#{spinabd}",String.valueOf(t.getSpinabd()));
- 		sql  = sql.replace("#{spinbe}",String.valueOf(t.getSpinbe()));
- 		sql  = sql.replace("#{spinbf}",String.valueOf(t.getSpinbf()));
- 		sql  = sql.replace("#{spinbg}",String.valueOf(t.getSpinbg()));
- 		sql  = sql.replace("#{spinbh}",String.valueOf(t.getSpinbh()));
- 		sql  = sql.replace("#{spinbi}",String.valueOf(t.getSpinbi()));
- 		sql  = sql.replace("#{spinbj}",String.valueOf(t.getSpinbj()));
- 		sql  = sql.replace("#{spinbk}",String.valueOf(t.getSpinbk()));
- 		sql  = sql.replace("#{spinbl}",String.valueOf(t.getSpinbl()));
- 		sql  = sql.replace("#{spinbm}",String.valueOf(t.getSpinbm()));
- 		sql  = sql.replace("#{spinbn}",String.valueOf(t.getSpinbn()));
- 		sql  = sql.replace("#{spinbo}",String.valueOf(t.getSpinbo()));
- 		sql  = sql.replace("#{spinbp}",String.valueOf(t.getSpinbp()));
- 		sql  = sql.replace("#{spinbq}",String.valueOf(t.getSpinbq()));
- 		sql  = sql.replace("#{spinbr}",String.valueOf(t.getSpinbr()));
- 		sql  = sql.replace("#{spinbs}",String.valueOf(t.getSpinbs()));
- 		sql  = sql.replace("#{spinbt}",String.valueOf(t.getSpinbt()));
- 		sql  = sql.replace("#{spinbu}",String.valueOf(t.getSpinbu()));
- 		sql  = sql.replace("#{spinbv}",String.valueOf(t.getSpinbv()));
- 		sql  = sql.replace("#{spinbw}",String.valueOf(t.getSpinbw()));
- 		sql  = sql.replace("#{spinbx}",String.valueOf(t.getSpinbx()));
- 		sql  = sql.replace("#{spinby}",String.valueOf(t.getSpinby()));
- 		sql  = sql.replace("#{spinbz}",String.valueOf(t.getSpinbz()));
- 		sql  = sql.replace("#{spinbaa}",String.valueOf(t.getSpinbaa()));
- 		sql  = sql.replace("#{spinbab}",String.valueOf(t.getSpinbab()));
- 		sql  = sql.replace("#{spinbac}",String.valueOf(t.getSpinbac()));
- 		sql  = sql.replace("#{spinbad}",String.valueOf(t.getSpinbad()));
- 		sql  = sql.replace("#{spinbae}",String.valueOf(t.getSpinbae()));
- 		sql  = sql.replace("#{spinbaf}",String.valueOf(t.getSpinbaf()));
- 		sql  = sql.replace("#{spinbag}",String.valueOf(t.getSpinbag()));
- 		sql  = sql.replace("#{spinbah}",String.valueOf(t.getSpinbah()));
- 		sql  = sql.replace("#{spinbai}",String.valueOf(t.getSpinbai()));
- 		sql  = sql.replace("#{spince}",String.valueOf(t.getSpince()));
- 		sql  = sql.replace("#{spincf}",String.valueOf(t.getSpincf()));
- 		sql  = sql.replace("#{spincg}",String.valueOf(t.getSpincg()));
- 		sql  = sql.replace("#{spinch}",String.valueOf(t.getSpinch()));
- 		sql  = sql.replace("#{spinci}",String.valueOf(t.getSpinci()));
- 		sql  = sql.replace("#{spincj}",String.valueOf(t.getSpincj()));
- 		sql  = sql.replace("#{spinck}",String.valueOf(t.getSpinck()));
- 		sql  = sql.replace("#{spincl}",String.valueOf(t.getSpincl()));
- 		sql  = sql.replace("#{spincm}",String.valueOf(t.getSpincm()));
- 		sql  = sql.replace("#{spincn}",String.valueOf(t.getSpincn()));
- 		sql  = sql.replace("#{spinco}",String.valueOf(t.getSpinco()));
- 		sql  = sql.replace("#{spincp}",String.valueOf(t.getSpincp()));
- 		sql  = sql.replace("#{spincq}",String.valueOf(t.getSpincq()));
- 		sql  = sql.replace("#{spincr}",String.valueOf(t.getSpincr()));
- 		sql  = sql.replace("#{spincs}",String.valueOf(t.getSpincs()));
- 		sql  = sql.replace("#{spinct}",String.valueOf(t.getSpinct()));
- 		sql  = sql.replace("#{spincu}",String.valueOf(t.getSpincu()));
- 		sql  = sql.replace("#{spincv}",String.valueOf(t.getSpincv()));
- 		sql  = sql.replace("#{spincw}",String.valueOf(t.getSpincw()));
- 		sql  = sql.replace("#{spincx}",String.valueOf(t.getSpincx()));
- 		sql  = sql.replace("#{spincy}",String.valueOf(t.getSpincy()));
- 		sql  = sql.replace("#{spincz}",String.valueOf(t.getSpincz()));
- 		sql  = sql.replace("#{spincaa}",String.valueOf(t.getSpincaa()));
- 		sql  = sql.replace("#{spincab}",String.valueOf(t.getSpincab()));
- 		sql  = sql.replace("#{spincac}",String.valueOf(t.getSpincac()));
- 		sql  = sql.replace("#{spincad}",String.valueOf(t.getSpincad()));
- 		sql  = sql.replace("#{spincae}",String.valueOf(t.getSpincae()));
- 		sql  = sql.replace("#{spincaf}",String.valueOf(t.getSpincaf()));
- 		sql  = sql.replace("#{spincag}",String.valueOf(t.getSpincag()));
- 		sql  = sql.replace("#{spincah}",String.valueOf(t.getSpincah()));
- 		sql  = sql.replace("#{spincai}",String.valueOf(t.getSpincai()));
- 		sql  = sql.replace("#{spincaj}",String.valueOf(t.getSpincaj()));
- 		sql  = sql.replace("#{spincak}",String.valueOf(t.getSpincak()));
- 		sql  = sql.replace("#{spincal}",String.valueOf(t.getSpincal()));
- 		sql  = sql.replace("#{spincam}",String.valueOf(t.getSpincam()));
- 		sql  = sql.replace("#{spincan}",String.valueOf(t.getSpincan()));
- 		sql  = sql.replace("#{spincao}",String.valueOf(t.getSpincao()));
- 		sql  = sql.replace("#{spincap}",String.valueOf(t.getSpincap()));
- 		sql  = sql.replace("#{spincaq}",String.valueOf(t.getSpincaq()));
- 		sql  = sql.replace("#{spincar}",String.valueOf(t.getSpincar()));
- 		sql  = sql.replace("#{spincas}",String.valueOf(t.getSpincas()));
- 		sql  = sql.replace("#{spincat}",String.valueOf(t.getSpincat()));
- 		sql  = sql.replace("#{spindf}",String.valueOf(t.getSpindf()));
- 		sql  = sql.replace("#{spindg}",String.valueOf(t.getSpindg()));
- 		sql  = sql.replace("#{spindh}",String.valueOf(t.getSpindh()));
- 		sql  = sql.replace("#{spindi}",String.valueOf(t.getSpindi()));
- 		sql  = sql.replace("#{spindj}",String.valueOf(t.getSpindj()));
- 		sql  = sql.replace("#{spindk}",String.valueOf(t.getSpindk()));
- 		sql  = sql.replace("#{spindl}",String.valueOf(t.getSpindl()));
- 		sql  = sql.replace("#{spindm}",String.valueOf(t.getSpindm()));
- 		sql  = sql.replace("#{spindn}",String.valueOf(t.getSpindn()));
- 		sql  = sql.replace("#{spindo}",String.valueOf(t.getSpindo()));
- 		sql  = sql.replace("#{spindp}",String.valueOf(t.getSpindp()));
- 		sql  = sql.replace("#{spindq}",String.valueOf(t.getSpindq()));
- 		sql  = sql.replace("#{spindr}",String.valueOf(t.getSpindr()));
- 		sql  = sql.replace("#{spinds}",String.valueOf(t.getSpinds()));
- 		sql  = sql.replace("#{spindt}",String.valueOf(t.getSpindt()));
- 		sql  = sql.replace("#{spindu}",String.valueOf(t.getSpindu()));
- 		sql  = sql.replace("#{spindv}",String.valueOf(t.getSpindv()));
- 		sql  = sql.replace("#{spindw}",String.valueOf(t.getSpindw()));
- 		sql  = sql.replace("#{spindx}",String.valueOf(t.getSpindx()));
- 		sql  = sql.replace("#{spindy}",String.valueOf(t.getSpindy()));
- 		sql  = sql.replace("#{spindz}",String.valueOf(t.getSpindz()));
- 		sql  = sql.replace("#{spindaa}",String.valueOf(t.getSpindaa()));
- 		sql  = sql.replace("#{spindab}",String.valueOf(t.getSpindab()));
- 		sql  = sql.replace("#{spindac}",String.valueOf(t.getSpindac()));
- 		sql  = sql.replace("#{spinef}",String.valueOf(t.getSpinef()));
- 		sql  = sql.replace("#{spineg}",String.valueOf(t.getSpineg()));
- 		sql  = sql.replace("#{spineh}",String.valueOf(t.getSpineh()));
- 		sql  = sql.replace("#{spinei}",String.valueOf(t.getSpinei()));
- 		sql  = sql.replace("#{spinej}",String.valueOf(t.getSpinej()));
- 		sql  = sql.replace("#{spinek}",String.valueOf(t.getSpinek()));
- 		sql  = sql.replace("#{spinel}",String.valueOf(t.getSpinel()));
- 		sql  = sql.replace("#{spinem}",String.valueOf(t.getSpinem()));
- 		sql  = sql.replace("#{spinen}",String.valueOf(t.getSpinen()));
- 		sql  = sql.replace("#{spineo}",String.valueOf(t.getSpineo()));
- 		sql  = sql.replace("#{spinep}",String.valueOf(t.getSpinep()));
- 		sql  = sql.replace("#{spineq}",String.valueOf(t.getSpineq()));
- 		sql  = sql.replace("#{spiner}",String.valueOf(t.getSpiner()));
- 		sql  = sql.replace("#{spines}",String.valueOf(t.getSpines()));
- 		sql  = sql.replace("#{spinet}",String.valueOf(t.getSpinet()));
- 		sql  = sql.replace("#{spineu}",String.valueOf(t.getSpineu()));
- 		sql  = sql.replace("#{spinev}",String.valueOf(t.getSpinev()));
- 		sql  = sql.replace("#{spinew}",String.valueOf(t.getSpinew()));
- 		sql  = sql.replace("#{spinex}",String.valueOf(t.getSpinex()));
- 		sql  = sql.replace("#{spiney}",String.valueOf(t.getSpiney()));
- 		sql  = sql.replace("#{spinez}",String.valueOf(t.getSpinez()));
- 		sql  = sql.replace("#{spineaa}",String.valueOf(t.getSpineaa()));
- 		sql  = sql.replace("#{spineab}",String.valueOf(t.getSpineab()));
- 		sql  = sql.replace("#{spineac}",String.valueOf(t.getSpineac()));
- 		sql  = sql.replace("#{spinead}",String.valueOf(t.getSpinead()));
- 		sql  = sql.replace("#{spineae}",String.valueOf(t.getSpineae()));
- 		sql  = sql.replace("#{spineaf}",String.valueOf(t.getSpineaf()));
- 		sql  = sql.replace("#{spineag}",String.valueOf(t.getSpineag()));
- 		sql  = sql.replace("#{spineah}",String.valueOf(t.getSpineah()));
- 		sql  = sql.replace("#{spineai}",String.valueOf(t.getSpineai()));
- 		sql  = sql.replace("#{spineaj}",String.valueOf(t.getSpineaj()));
- 		sql  = sql.replace("#{spineak}",String.valueOf(t.getSpineak()));
- 		sql  = sql.replace("#{spineal}",String.valueOf(t.getSpineal()));
- 		sql  = sql.replace("#{spineam}",String.valueOf(t.getSpineam()));
- 		sql  = sql.replace("#{spinean}",String.valueOf(t.getSpinean()));
- 		sql  = sql.replace("#{spineao}",String.valueOf(t.getSpineao()));
- 		sql  = sql.replace("#{spineap}",String.valueOf(t.getSpineap()));
- 		sql  = sql.replace("#{spineaq}",String.valueOf(t.getSpineaq()));
- 		sql  = sql.replace("#{spinear}",String.valueOf(t.getSpinear()));
- 		sql  = sql.replace("#{spineas}",String.valueOf(t.getSpineas()));
- 		sql  = sql.replace("#{spineat}",String.valueOf(t.getSpineat()));
- 		sql  = sql.replace("#{spinff}",String.valueOf(t.getSpinff()));
- 		sql  = sql.replace("#{spinfg}",String.valueOf(t.getSpinfg()));
- 		sql  = sql.replace("#{spinfh}",String.valueOf(t.getSpinfh()));
- 		sql  = sql.replace("#{spinfi}",String.valueOf(t.getSpinfi()));
- 		sql  = sql.replace("#{spinfj}",String.valueOf(t.getSpinfj()));
- 		sql  = sql.replace("#{spinfk}",String.valueOf(t.getSpinfk()));
- 		sql  = sql.replace("#{spinfl}",String.valueOf(t.getSpinfl()));
- 		sql  = sql.replace("#{spinfm}",String.valueOf(t.getSpinfm()));
- 		sql  = sql.replace("#{spinfn}",String.valueOf(t.getSpinfn()));
- 		sql  = sql.replace("#{spinfo}",String.valueOf(t.getSpinfo()));
- 		sql  = sql.replace("#{spinfp}",String.valueOf(t.getSpinfp()));
- 		sql  = sql.replace("#{spinfq}",String.valueOf(t.getSpinfq()));
- 		sql  = sql.replace("#{spinfr}",String.valueOf(t.getSpinfr()));
- 		sql  = sql.replace("#{spinfs}",String.valueOf(t.getSpinfs()));
- 		sql  = sql.replace("#{spinft}",String.valueOf(t.getSpinft()));
- 		sql  = sql.replace("#{spinfu}",String.valueOf(t.getSpinfu()));
- 		sql  = sql.replace("#{spinfv}",String.valueOf(t.getSpinfv()));
- 		sql  = sql.replace("#{spinfw}",String.valueOf(t.getSpinfw()));
- 		sql  = sql.replace("#{spinfx}",String.valueOf(t.getSpinfx()));
- 		sql  = sql.replace("#{spinfy}",String.valueOf(t.getSpinfy()));
- 		sql  = sql.replace("#{spinfz}",String.valueOf(t.getSpinfz()));
- 		sql  = sql.replace("#{spinfaa}",String.valueOf(t.getSpinfaa()));
- 		sql  = sql.replace("#{spinfab}",String.valueOf(t.getSpinfab()));
- 		sql  = sql.replace("#{spinfac}",String.valueOf(t.getSpinfac()));
- 		sql  = sql.replace("#{spingf}",String.valueOf(t.getSpingf()));
- 		sql  = sql.replace("#{spingg}",String.valueOf(t.getSpingg()));
- 		sql  = sql.replace("#{spingh}",String.valueOf(t.getSpingh()));
- 		sql  = sql.replace("#{spingi}",String.valueOf(t.getSpingi()));
- 		sql  = sql.replace("#{spingj}",String.valueOf(t.getSpingj()));
- 		sql  = sql.replace("#{spingk}",String.valueOf(t.getSpingk()));
- 		sql  = sql.replace("#{spingl}",String.valueOf(t.getSpingl()));
- 		sql  = sql.replace("#{spingm}",String.valueOf(t.getSpingm()));
- 		sql  = sql.replace("#{spingn}",String.valueOf(t.getSpingn()));
- 		sql  = sql.replace("#{spingo}",String.valueOf(t.getSpingo()));
- 		sql  = sql.replace("#{spingp}",String.valueOf(t.getSpingp()));
- 		sql  = sql.replace("#{spingq}",String.valueOf(t.getSpingq()));
- 		sql  = sql.replace("#{spingr}",String.valueOf(t.getSpingr()));
- 		sql  = sql.replace("#{spings}",String.valueOf(t.getSpings()));
- 		sql  = sql.replace("#{spingt}",String.valueOf(t.getSpingt()));
- 		sql  = sql.replace("#{spingu}",String.valueOf(t.getSpingu()));
- 		sql  = sql.replace("#{spingv}",String.valueOf(t.getSpingv()));
- 		sql  = sql.replace("#{spingw}",String.valueOf(t.getSpingw()));
- 		sql  = sql.replace("#{spinhe}",String.valueOf(t.getSpinhe()));
- 		sql  = sql.replace("#{spinhf}",String.valueOf(t.getSpinhf()));
- 		sql  = sql.replace("#{spinhg}",String.valueOf(t.getSpinhg()));
- 		sql  = sql.replace("#{spinhh}",String.valueOf(t.getSpinhh()));
- 		sql  = sql.replace("#{spinhi}",String.valueOf(t.getSpinhi()));
- 		sql  = sql.replace("#{spinhj}",String.valueOf(t.getSpinhj()));
- 		sql  = sql.replace("#{spinhk}",String.valueOf(t.getSpinhk()));
- 		sql  = sql.replace("#{spinhl}",String.valueOf(t.getSpinhl()));
- 		sql  = sql.replace("#{spinhm}",String.valueOf(t.getSpinhm()));
- 		sql  = sql.replace("#{spinhn}",String.valueOf(t.getSpinhn()));
- 		sql  = sql.replace("#{spinho}",String.valueOf(t.getSpinho()));
- 		sql  = sql.replace("#{spinhp}",String.valueOf(t.getSpinhp()));
- 		sql  = sql.replace("#{spinhq}",String.valueOf(t.getSpinhq()));
- 		sql  = sql.replace("#{spinhr}",String.valueOf(t.getSpinhr()));
- 		sql  = sql.replace("#{spinhs}",String.valueOf(t.getSpinhs()));
- 		sql  = sql.replace("#{spinht}",String.valueOf(t.getSpinht()));
- 		sql  = sql.replace("#{spinhu}",String.valueOf(t.getSpinhu()));
- 		sql  = sql.replace("#{spinhv}",String.valueOf(t.getSpinhv()));
- 		sql  = sql.replace("#{spinhw}",String.valueOf(t.getSpinhw()));
- 		sql  = sql.replace("#{spinhx}",String.valueOf(t.getSpinhx()));
- 		sql  = sql.replace("#{spinhy}",String.valueOf(t.getSpinhy()));
- 		sql  = sql.replace("#{spinhz}",String.valueOf(t.getSpinhz()));
- 		sql  = sql.replace("#{spinhaa}",String.valueOf(t.getSpinhaa()));
- 		sql  = sql.replace("#{spinhab}",String.valueOf(t.getSpinhab()));
- 		sql  = sql.replace("#{spinhac}",String.valueOf(t.getSpinhac()));
- 		sql  = sql.replace("#{spinhad}",String.valueOf(t.getSpinhad()));
- 		sql  = sql.replace("#{spinhae}",String.valueOf(t.getSpinhae()));
- 		sql  = sql.replace("#{spinhaf}",String.valueOf(t.getSpinhaf()));
-        sql  = sql.replace("#{mllx}",String.valueOf(t.getMllx()));
-        sql  = sql.replace("#{ccdw}",String.valueOf(t.getCcdw()));
- 		sql  = sql.replace("#{UUID}",UUID.randomUUID().toString());
- 		return sql;
- 	}
- 	
- 	/**
+	public String replaceVal(String sql,BdSpinEntity t){
+		sql  = sql.replace("#{id}",String.valueOf(t.getId()));
+		sql  = sql.replace("#{create_name}",String.valueOf(t.getCreateName()));
+		sql  = sql.replace("#{create_by}",String.valueOf(t.getCreateBy()));
+		sql  = sql.replace("#{create_date}",String.valueOf(t.getCreateDate()));
+		sql  = sql.replace("#{update_name}",String.valueOf(t.getUpdateName()));
+		sql  = sql.replace("#{update_by}",String.valueOf(t.getUpdateBy()));
+		sql  = sql.replace("#{update_date}",String.valueOf(t.getUpdateDate()));
+		sql  = sql.replace("#{sys_org_code}",String.valueOf(t.getSysOrgCode()));
+		sql  = sql.replace("#{sys_company_code}",String.valueOf(t.getSysCompanyCode()));
+		sql  = sql.replace("#{bpm_status}",String.valueOf(t.getBpmStatus()));
+		sql  = sql.replace("#{mllx}",String.valueOf(t.getMllx()));
+		sql  = sql.replace("#{ccdw}",String.valueOf(t.getCcdw()));
+		sql  = sql.replace("#{spinaa}",String.valueOf(t.getSpinaa()));
+		sql  = sql.replace("#{spinab}",String.valueOf(t.getSpinab()));
+		sql  = sql.replace("#{spinac}",String.valueOf(t.getSpinac()));
+		sql  = sql.replace("#{spinad}",String.valueOf(t.getSpinad()));
+		sql  = sql.replace("#{spinae}",String.valueOf(t.getSpinae()));
+		sql  = sql.replace("#{spinaf}",String.valueOf(t.getSpinaf()));
+		sql  = sql.replace("#{spinag}",String.valueOf(t.getSpinag()));
+		sql  = sql.replace("#{spinah}",String.valueOf(t.getSpinah()));
+		sql  = sql.replace("#{spinai}",String.valueOf(t.getSpinai()));
+		sql  = sql.replace("#{spinaj}",String.valueOf(t.getSpinaj()));
+		sql  = sql.replace("#{spinak}",String.valueOf(t.getSpinak()));
+		sql  = sql.replace("#{spinal}",String.valueOf(t.getSpinal()));
+		sql  = sql.replace("#{spinam}",String.valueOf(t.getSpinam()));
+		sql  = sql.replace("#{spinan}",String.valueOf(t.getSpinan()));
+		sql  = sql.replace("#{spinao}",String.valueOf(t.getSpinao()));
+		sql  = sql.replace("#{spinap}",String.valueOf(t.getSpinap()));
+		sql  = sql.replace("#{spinaq}",String.valueOf(t.getSpinaq()));
+		sql  = sql.replace("#{spinar}",String.valueOf(t.getSpinar()));
+		sql  = sql.replace("#{spinas}",String.valueOf(t.getSpinas()));
+		sql  = sql.replace("#{spinat}",String.valueOf(t.getSpinat()));
+		sql  = sql.replace("#{spinau}",String.valueOf(t.getSpinau()));
+		sql  = sql.replace("#{spinav}",String.valueOf(t.getSpinav()));
+		sql  = sql.replace("#{spinaw}",String.valueOf(t.getSpinaw()));
+		sql  = sql.replace("#{spinax}",String.valueOf(t.getSpinax()));
+		sql  = sql.replace("#{spinay}",String.valueOf(t.getSpinay()));
+		sql  = sql.replace("#{spinaz}",String.valueOf(t.getSpinaz()));
+		sql  = sql.replace("#{spinaaa}",String.valueOf(t.getSpinaaa()));
+		sql  = sql.replace("#{spinaab}",String.valueOf(t.getSpinaab()));
+		sql  = sql.replace("#{spinaac}",String.valueOf(t.getSpinaac()));
+		sql  = sql.replace("#{spinaad}",String.valueOf(t.getSpinaad()));
+		sql  = sql.replace("#{spinaae}",String.valueOf(t.getSpinaae()));
+		sql  = sql.replace("#{spinaaf}",String.valueOf(t.getSpinaaf()));
+		sql  = sql.replace("#{spinaag}",String.valueOf(t.getSpinaag()));
+		sql  = sql.replace("#{spinaah}",String.valueOf(t.getSpinaah()));
+		sql  = sql.replace("#{spinaai}",String.valueOf(t.getSpinaai()));
+		sql  = sql.replace("#{spinaaj}",String.valueOf(t.getSpinaaj()));
+		sql  = sql.replace("#{spinaak}",String.valueOf(t.getSpinaak()));
+		sql  = sql.replace("#{spinaal}",String.valueOf(t.getSpinaal()));
+		sql  = sql.replace("#{spinaam}",String.valueOf(t.getSpinaam()));
+		sql  = sql.replace("#{spinaan}",String.valueOf(t.getSpinaan()));
+		sql  = sql.replace("#{spinaao}",String.valueOf(t.getSpinaao()));
+		sql  = sql.replace("#{spinaap}",String.valueOf(t.getSpinaap()));
+		sql  = sql.replace("#{spinaaq}",String.valueOf(t.getSpinaaq()));
+		sql  = sql.replace("#{spinaar}",String.valueOf(t.getSpinaar()));
+		sql  = sql.replace("#{spinaas}",String.valueOf(t.getSpinaas()));
+		sql  = sql.replace("#{spinaat}",String.valueOf(t.getSpinaat()));
+		sql  = sql.replace("#{spinaau}",String.valueOf(t.getSpinaau()));
+		sql  = sql.replace("#{spinaav}",String.valueOf(t.getSpinaav()));
+		sql  = sql.replace("#{spinaaw}",String.valueOf(t.getSpinaaw()));
+		sql  = sql.replace("#{spinaax}",String.valueOf(t.getSpinaax()));
+		sql  = sql.replace("#{spinaay}",String.valueOf(t.getSpinaay()));
+		sql  = sql.replace("#{spinaaz}",String.valueOf(t.getSpinaaz()));
+		sql  = sql.replace("#{spinaba}",String.valueOf(t.getSpinaba()));
+		sql  = sql.replace("#{spinabb}",String.valueOf(t.getSpinabb()));
+		sql  = sql.replace("#{spinabc}",String.valueOf(t.getSpinabc()));
+		sql  = sql.replace("#{spinabd}",String.valueOf(t.getSpinabd()));
+		sql  = sql.replace("#{spinbe}",String.valueOf(t.getSpinbe()));
+		sql  = sql.replace("#{spinbf}",String.valueOf(t.getSpinbf()));
+		sql  = sql.replace("#{spinbg}",String.valueOf(t.getSpinbg()));
+		sql  = sql.replace("#{spinbh}",String.valueOf(t.getSpinbh()));
+		sql  = sql.replace("#{spinbi}",String.valueOf(t.getSpinbi()));
+		sql  = sql.replace("#{spinbj}",String.valueOf(t.getSpinbj()));
+		sql  = sql.replace("#{spinbk}",String.valueOf(t.getSpinbk()));
+		sql  = sql.replace("#{spinbl}",String.valueOf(t.getSpinbl()));
+		sql  = sql.replace("#{spinbm}",String.valueOf(t.getSpinbm()));
+		sql  = sql.replace("#{spinbn}",String.valueOf(t.getSpinbn()));
+		sql  = sql.replace("#{spinbo}",String.valueOf(t.getSpinbo()));
+		sql  = sql.replace("#{spinbp}",String.valueOf(t.getSpinbp()));
+		sql  = sql.replace("#{spinbq}",String.valueOf(t.getSpinbq()));
+		sql  = sql.replace("#{spinbr}",String.valueOf(t.getSpinbr()));
+		sql  = sql.replace("#{spinbs}",String.valueOf(t.getSpinbs()));
+		sql  = sql.replace("#{spinbt}",String.valueOf(t.getSpinbt()));
+		sql  = sql.replace("#{spinbu}",String.valueOf(t.getSpinbu()));
+		sql  = sql.replace("#{spinbv}",String.valueOf(t.getSpinbv()));
+		sql  = sql.replace("#{spinbw}",String.valueOf(t.getSpinbw()));
+		sql  = sql.replace("#{spinbx}",String.valueOf(t.getSpinbx()));
+		sql  = sql.replace("#{spinby}",String.valueOf(t.getSpinby()));
+		sql  = sql.replace("#{spinbz}",String.valueOf(t.getSpinbz()));
+		sql  = sql.replace("#{spinbaa}",String.valueOf(t.getSpinbaa()));
+		sql  = sql.replace("#{spinbab}",String.valueOf(t.getSpinbab()));
+		sql  = sql.replace("#{spinbac}",String.valueOf(t.getSpinbac()));
+		sql  = sql.replace("#{spinbad}",String.valueOf(t.getSpinbad()));
+		sql  = sql.replace("#{spinbae}",String.valueOf(t.getSpinbae()));
+		sql  = sql.replace("#{spinbaf}",String.valueOf(t.getSpinbaf()));
+		sql  = sql.replace("#{spinbag}",String.valueOf(t.getSpinbag()));
+		sql  = sql.replace("#{spinbah}",String.valueOf(t.getSpinbah()));
+		sql  = sql.replace("#{spinbai}",String.valueOf(t.getSpinbai()));
+		sql  = sql.replace("#{spince}",String.valueOf(t.getSpince()));
+		sql  = sql.replace("#{spincf}",String.valueOf(t.getSpincf()));
+		sql  = sql.replace("#{spincg}",String.valueOf(t.getSpincg()));
+		sql  = sql.replace("#{spinch}",String.valueOf(t.getSpinch()));
+		sql  = sql.replace("#{spinci}",String.valueOf(t.getSpinci()));
+		sql  = sql.replace("#{spincj}",String.valueOf(t.getSpincj()));
+		sql  = sql.replace("#{spinck}",String.valueOf(t.getSpinck()));
+		sql  = sql.replace("#{spincl}",String.valueOf(t.getSpincl()));
+		sql  = sql.replace("#{spincm}",String.valueOf(t.getSpincm()));
+		sql  = sql.replace("#{spincn}",String.valueOf(t.getSpincn()));
+		sql  = sql.replace("#{spinco}",String.valueOf(t.getSpinco()));
+		sql  = sql.replace("#{spincp}",String.valueOf(t.getSpincp()));
+		sql  = sql.replace("#{spincq}",String.valueOf(t.getSpincq()));
+		sql  = sql.replace("#{spincr}",String.valueOf(t.getSpincr()));
+		sql  = sql.replace("#{spincs}",String.valueOf(t.getSpincs()));
+		sql  = sql.replace("#{spinct}",String.valueOf(t.getSpinct()));
+		sql  = sql.replace("#{spincu}",String.valueOf(t.getSpincu()));
+		sql  = sql.replace("#{spincv}",String.valueOf(t.getSpincv()));
+		sql  = sql.replace("#{spincw}",String.valueOf(t.getSpincw()));
+		sql  = sql.replace("#{spincx}",String.valueOf(t.getSpincx()));
+		sql  = sql.replace("#{spincy}",String.valueOf(t.getSpincy()));
+		sql  = sql.replace("#{spincz}",String.valueOf(t.getSpincz()));
+		sql  = sql.replace("#{spincaa}",String.valueOf(t.getSpincaa()));
+		sql  = sql.replace("#{spincab}",String.valueOf(t.getSpincab()));
+		sql  = sql.replace("#{spincac}",String.valueOf(t.getSpincac()));
+		sql  = sql.replace("#{spincad}",String.valueOf(t.getSpincad()));
+		sql  = sql.replace("#{spincae}",String.valueOf(t.getSpincae()));
+		sql  = sql.replace("#{spincaf}",String.valueOf(t.getSpincaf()));
+		sql  = sql.replace("#{spincag}",String.valueOf(t.getSpincag()));
+		sql  = sql.replace("#{spincah}",String.valueOf(t.getSpincah()));
+		sql  = sql.replace("#{spincai}",String.valueOf(t.getSpincai()));
+		sql  = sql.replace("#{spincaj}",String.valueOf(t.getSpincaj()));
+		sql  = sql.replace("#{spincak}",String.valueOf(t.getSpincak()));
+		sql  = sql.replace("#{spincal}",String.valueOf(t.getSpincal()));
+		sql  = sql.replace("#{spincam}",String.valueOf(t.getSpincam()));
+		sql  = sql.replace("#{spincan}",String.valueOf(t.getSpincan()));
+		sql  = sql.replace("#{spincao}",String.valueOf(t.getSpincao()));
+		sql  = sql.replace("#{spincap}",String.valueOf(t.getSpincap()));
+		sql  = sql.replace("#{spincaq}",String.valueOf(t.getSpincaq()));
+		sql  = sql.replace("#{spincar}",String.valueOf(t.getSpincar()));
+		sql  = sql.replace("#{spincas}",String.valueOf(t.getSpincas()));
+		sql  = sql.replace("#{spincat}",String.valueOf(t.getSpincat()));
+		sql  = sql.replace("#{spindf}",String.valueOf(t.getSpindf()));
+		sql  = sql.replace("#{spindg}",String.valueOf(t.getSpindg()));
+		sql  = sql.replace("#{spindh}",String.valueOf(t.getSpindh()));
+		sql  = sql.replace("#{spindi}",String.valueOf(t.getSpindi()));
+		sql  = sql.replace("#{spindj}",String.valueOf(t.getSpindj()));
+		sql  = sql.replace("#{spindk}",String.valueOf(t.getSpindk()));
+		sql  = sql.replace("#{spindl}",String.valueOf(t.getSpindl()));
+		sql  = sql.replace("#{spindm}",String.valueOf(t.getSpindm()));
+		sql  = sql.replace("#{spindn}",String.valueOf(t.getSpindn()));
+		sql  = sql.replace("#{spindo}",String.valueOf(t.getSpindo()));
+		sql  = sql.replace("#{spindp}",String.valueOf(t.getSpindp()));
+		sql  = sql.replace("#{spindq}",String.valueOf(t.getSpindq()));
+		sql  = sql.replace("#{spindr}",String.valueOf(t.getSpindr()));
+		sql  = sql.replace("#{spinds}",String.valueOf(t.getSpinds()));
+		sql  = sql.replace("#{spindt}",String.valueOf(t.getSpindt()));
+		sql  = sql.replace("#{spindu}",String.valueOf(t.getSpindu()));
+		sql  = sql.replace("#{spindv}",String.valueOf(t.getSpindv()));
+		sql  = sql.replace("#{spindw}",String.valueOf(t.getSpindw()));
+		sql  = sql.replace("#{spindx}",String.valueOf(t.getSpindx()));
+		sql  = sql.replace("#{spindy}",String.valueOf(t.getSpindy()));
+		sql  = sql.replace("#{spindz}",String.valueOf(t.getSpindz()));
+		sql  = sql.replace("#{spindaa}",String.valueOf(t.getSpindaa()));
+		sql  = sql.replace("#{spindab}",String.valueOf(t.getSpindab()));
+		sql  = sql.replace("#{spindac}",String.valueOf(t.getSpindac()));
+		sql  = sql.replace("#{spinef}",String.valueOf(t.getSpinef()));
+		sql  = sql.replace("#{spineg}",String.valueOf(t.getSpineg()));
+		sql  = sql.replace("#{spineh}",String.valueOf(t.getSpineh()));
+		sql  = sql.replace("#{spinei}",String.valueOf(t.getSpinei()));
+		sql  = sql.replace("#{spinej}",String.valueOf(t.getSpinej()));
+		sql  = sql.replace("#{spinek}",String.valueOf(t.getSpinek()));
+		sql  = sql.replace("#{spinel}",String.valueOf(t.getSpinel()));
+		sql  = sql.replace("#{spinem}",String.valueOf(t.getSpinem()));
+		sql  = sql.replace("#{spinen}",String.valueOf(t.getSpinen()));
+		sql  = sql.replace("#{spineo}",String.valueOf(t.getSpineo()));
+		sql  = sql.replace("#{spinep}",String.valueOf(t.getSpinep()));
+		sql  = sql.replace("#{spineq}",String.valueOf(t.getSpineq()));
+		sql  = sql.replace("#{spiner}",String.valueOf(t.getSpiner()));
+		sql  = sql.replace("#{spines}",String.valueOf(t.getSpines()));
+		sql  = sql.replace("#{spinet}",String.valueOf(t.getSpinet()));
+		sql  = sql.replace("#{spineu}",String.valueOf(t.getSpineu()));
+		sql  = sql.replace("#{spinev}",String.valueOf(t.getSpinev()));
+		sql  = sql.replace("#{spinew}",String.valueOf(t.getSpinew()));
+		sql  = sql.replace("#{spinex}",String.valueOf(t.getSpinex()));
+		sql  = sql.replace("#{spiney}",String.valueOf(t.getSpiney()));
+		sql  = sql.replace("#{spinez}",String.valueOf(t.getSpinez()));
+		sql  = sql.replace("#{spineaa}",String.valueOf(t.getSpineaa()));
+		sql  = sql.replace("#{spineab}",String.valueOf(t.getSpineab()));
+		sql  = sql.replace("#{spineac}",String.valueOf(t.getSpineac()));
+		sql  = sql.replace("#{spinead}",String.valueOf(t.getSpinead()));
+		sql  = sql.replace("#{spineae}",String.valueOf(t.getSpineae()));
+		sql  = sql.replace("#{spineaf}",String.valueOf(t.getSpineaf()));
+		sql  = sql.replace("#{spineag}",String.valueOf(t.getSpineag()));
+		sql  = sql.replace("#{spineah}",String.valueOf(t.getSpineah()));
+		sql  = sql.replace("#{spineai}",String.valueOf(t.getSpineai()));
+		sql  = sql.replace("#{spineaj}",String.valueOf(t.getSpineaj()));
+		sql  = sql.replace("#{spineak}",String.valueOf(t.getSpineak()));
+		sql  = sql.replace("#{spineal}",String.valueOf(t.getSpineal()));
+		sql  = sql.replace("#{spineam}",String.valueOf(t.getSpineam()));
+		sql  = sql.replace("#{spinean}",String.valueOf(t.getSpinean()));
+		sql  = sql.replace("#{spineao}",String.valueOf(t.getSpineao()));
+		sql  = sql.replace("#{spineap}",String.valueOf(t.getSpineap()));
+		sql  = sql.replace("#{spineaq}",String.valueOf(t.getSpineaq()));
+		sql  = sql.replace("#{spinear}",String.valueOf(t.getSpinear()));
+		sql  = sql.replace("#{spineas}",String.valueOf(t.getSpineas()));
+		sql  = sql.replace("#{spineat}",String.valueOf(t.getSpineat()));
+		sql  = sql.replace("#{spinff}",String.valueOf(t.getSpinff()));
+		sql  = sql.replace("#{spinfg}",String.valueOf(t.getSpinfg()));
+		sql  = sql.replace("#{spinfh}",String.valueOf(t.getSpinfh()));
+		sql  = sql.replace("#{spinfi}",String.valueOf(t.getSpinfi()));
+		sql  = sql.replace("#{spinfj}",String.valueOf(t.getSpinfj()));
+		sql  = sql.replace("#{spinfk}",String.valueOf(t.getSpinfk()));
+		sql  = sql.replace("#{spinfl}",String.valueOf(t.getSpinfl()));
+		sql  = sql.replace("#{spinfm}",String.valueOf(t.getSpinfm()));
+		sql  = sql.replace("#{spinfn}",String.valueOf(t.getSpinfn()));
+		sql  = sql.replace("#{spinfo}",String.valueOf(t.getSpinfo()));
+		sql  = sql.replace("#{spinfp}",String.valueOf(t.getSpinfp()));
+		sql  = sql.replace("#{spinfq}",String.valueOf(t.getSpinfq()));
+		sql  = sql.replace("#{spinfr}",String.valueOf(t.getSpinfr()));
+		sql  = sql.replace("#{spinfs}",String.valueOf(t.getSpinfs()));
+		sql  = sql.replace("#{spinft}",String.valueOf(t.getSpinft()));
+		sql  = sql.replace("#{spinfu}",String.valueOf(t.getSpinfu()));
+		sql  = sql.replace("#{spinfv}",String.valueOf(t.getSpinfv()));
+		sql  = sql.replace("#{spinfw}",String.valueOf(t.getSpinfw()));
+		sql  = sql.replace("#{spinfx}",String.valueOf(t.getSpinfx()));
+		sql  = sql.replace("#{spinfy}",String.valueOf(t.getSpinfy()));
+		sql  = sql.replace("#{spinfz}",String.valueOf(t.getSpinfz()));
+		sql  = sql.replace("#{spinfaa}",String.valueOf(t.getSpinfaa()));
+		sql  = sql.replace("#{spinfab}",String.valueOf(t.getSpinfab()));
+		sql  = sql.replace("#{spinfac}",String.valueOf(t.getSpinfac()));
+		sql  = sql.replace("#{spingf}",String.valueOf(t.getSpingf()));
+		sql  = sql.replace("#{spingg}",String.valueOf(t.getSpingg()));
+		sql  = sql.replace("#{spingh}",String.valueOf(t.getSpingh()));
+		sql  = sql.replace("#{spingi}",String.valueOf(t.getSpingi()));
+		sql  = sql.replace("#{spingj}",String.valueOf(t.getSpingj()));
+		sql  = sql.replace("#{spingk}",String.valueOf(t.getSpingk()));
+		sql  = sql.replace("#{spingl}",String.valueOf(t.getSpingl()));
+		sql  = sql.replace("#{spingm}",String.valueOf(t.getSpingm()));
+		sql  = sql.replace("#{spingn}",String.valueOf(t.getSpingn()));
+		sql  = sql.replace("#{spingo}",String.valueOf(t.getSpingo()));
+		sql  = sql.replace("#{spingp}",String.valueOf(t.getSpingp()));
+		sql  = sql.replace("#{spingq}",String.valueOf(t.getSpingq()));
+		sql  = sql.replace("#{spingr}",String.valueOf(t.getSpingr()));
+		sql  = sql.replace("#{spings}",String.valueOf(t.getSpings()));
+		sql  = sql.replace("#{spingt}",String.valueOf(t.getSpingt()));
+		sql  = sql.replace("#{spingu}",String.valueOf(t.getSpingu()));
+		sql  = sql.replace("#{spingv}",String.valueOf(t.getSpingv()));
+		sql  = sql.replace("#{spingw}",String.valueOf(t.getSpingw()));
+		sql  = sql.replace("#{spinhe}",String.valueOf(t.getSpinhe()));
+		sql  = sql.replace("#{spinhf}",String.valueOf(t.getSpinhf()));
+		sql  = sql.replace("#{spinhg}",String.valueOf(t.getSpinhg()));
+		sql  = sql.replace("#{spinhh}",String.valueOf(t.getSpinhh()));
+		sql  = sql.replace("#{spinhi}",String.valueOf(t.getSpinhi()));
+		sql  = sql.replace("#{spinhj}",String.valueOf(t.getSpinhj()));
+		sql  = sql.replace("#{spinhk}",String.valueOf(t.getSpinhk()));
+		sql  = sql.replace("#{spinhl}",String.valueOf(t.getSpinhl()));
+		sql  = sql.replace("#{spinhm}",String.valueOf(t.getSpinhm()));
+		sql  = sql.replace("#{spinhn}",String.valueOf(t.getSpinhn()));
+		sql  = sql.replace("#{spinho}",String.valueOf(t.getSpinho()));
+		sql  = sql.replace("#{spinhp}",String.valueOf(t.getSpinhp()));
+		sql  = sql.replace("#{spinhq}",String.valueOf(t.getSpinhq()));
+		sql  = sql.replace("#{spinhr}",String.valueOf(t.getSpinhr()));
+		sql  = sql.replace("#{spinhs}",String.valueOf(t.getSpinhs()));
+		sql  = sql.replace("#{spinht}",String.valueOf(t.getSpinht()));
+		sql  = sql.replace("#{spinhu}",String.valueOf(t.getSpinhu()));
+		sql  = sql.replace("#{spinhv}",String.valueOf(t.getSpinhv()));
+		sql  = sql.replace("#{spinhw}",String.valueOf(t.getSpinhw()));
+		sql  = sql.replace("#{spinhx}",String.valueOf(t.getSpinhx()));
+		sql  = sql.replace("#{spinhy}",String.valueOf(t.getSpinhy()));
+		sql  = sql.replace("#{spinhz}",String.valueOf(t.getSpinhz()));
+		sql  = sql.replace("#{spinhaa}",String.valueOf(t.getSpinhaa()));
+		sql  = sql.replace("#{spinhab}",String.valueOf(t.getSpinhab()));
+		sql  = sql.replace("#{spinhac}",String.valueOf(t.getSpinhac()));
+		sql  = sql.replace("#{spinhad}",String.valueOf(t.getSpinhad()));
+		sql  = sql.replace("#{spinhae}",String.valueOf(t.getSpinhae()));
+		sql  = sql.replace("#{spinhaf}",String.valueOf(t.getSpinhaf()));
+		sql  = sql.replace("#{UUID}",UUID.randomUUID().toString());
+		return sql;
+	}
+
+	/**
 	 * 执行JAVA增强
 	 */
- 	private void executeJavaExtend(String cgJavaType,String cgJavaValue,Map<String,Object> data) throws Exception {
- 		if(StringUtil.isNotEmpty(cgJavaValue)){
+	private void executeJavaExtend(String cgJavaType,String cgJavaValue,Map<String,Object> data) throws Exception {
+		if(StringUtil.isNotEmpty(cgJavaValue)){
 			Object obj = null;
 			try {
 				if("class".equals(cgJavaType)){
@@ -674,7 +893,7 @@ public class BdSpinServiceImpl extends CommonServiceImpl implements BdSpinServic
 			} catch (Exception e) {
 				e.printStackTrace();
 				throw new Exception("执行JAVA增强出现异常！");
-			} 
+			}
 		}
- 	}
+	}
 }
