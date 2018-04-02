@@ -1,14 +1,14 @@
 package com.jeecg.utils;
 
-import org.apache.commons.lang.StringUtils;
-
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.regex.Pattern;
 
 /**
  * 由于Java的简单类型不能够精确的对浮点数进行运算，这个工具类提供精
  * 确的浮点数运算，包括加减乘除和四舍五入。
  */
+@SuppressWarnings("AlibabaAvoidPatternCompileInMethod")
 public class DoubleUtil {
 
     //默认除法运算精度
@@ -97,10 +97,16 @@ public class DoubleUtil {
      */
     public static boolean isOK(Object ... objects) {
         for(Object obj : objects) {
+            //采用正则表达式的方式来判断一个字符串是否为数字，这种方式判断面比较全
+            //可以判断正负、整数小数
+
             if(obj  == null){
                 return false;
             }
-            if(!StringUtils.isNumeric(obj.toString())) {
+            boolean isInt = Pattern.compile("^-?[1-9]\\d*$").matcher(obj.toString()).find();
+            boolean isDouble = Pattern.compile("^-?([1-9]\\d*\\.\\d*|0\\.\\d*[1-9]\\d*|0?\\.0+|0)$").matcher(obj.toString()).find();
+
+            if(!isInt && !isDouble) {
                 return false;
             }
         }

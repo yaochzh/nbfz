@@ -51,39 +51,39 @@
             <t:dgCol title="本区域工价"  field="spinas" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="58"></t:dgCol>
 
 
-            <t:dgCol title="区域系数"  field="spinat" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="工厂系数"  field="spinau" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
+            <t:dgCol title="区域系数"  field="spinat" queryMode="group"  formatterjs="fix100"     extendParams="editor:'text'" width="58"></t:dgCol>
+            <t:dgCol title="工厂系数"  field="spinau" queryMode="group"   formatterjs="fix1"  extendParams="editor:'text'" width="58"></t:dgCol>
             <t:dgCol title="系数工价"  field="spinav" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="利税"  field="spinaw" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+            <t:dgCol title="利税"  field="spinaw" queryMode="group" formatterjs="fix100"  extendParams="editor:'text'" width="50"></t:dgCol>
             <t:dgCol title="总价"  field="spinax" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="50"></t:dgCol>
             <t:dgCol title="总差价"  field="spinay" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="60"></t:dgCol>
             <t:dgCol title="税后差价"  field="spinaz" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="58"></t:dgCol>
             <t:dgCol title="税后毛利"  field="spinaaa" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="利息"  field="spinaab" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="税后利率"  field="spinaac" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
+            <t:dgCol title="利息"  field="spinaab" queryMode="group" formatterjs="fix100"  extendParams="editor:'text'" width="50"></t:dgCol>
+            <t:dgCol title="税后利率"  field="spinaac" queryMode="group" formatterjs="fix100"  extendParams="editor:'text'" width="58"></t:dgCol>
 
 
             <t:dgCol title="工厂系数"  field="spinaad" queryMode="group"  formatterjs="fix1"  extendParams="editor:'text'" width="58"></t:dgCol>
             <t:dgCol title="系数工价"  field="spinaae" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="利税"  field="spinaaf" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+            <t:dgCol title="利税"  field="spinaaf" queryMode="group" formatterjs="fix100"  extendParams="editor:'text'" width="50"></t:dgCol>
             <t:dgCol title="总价"  field="spinaag" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="50"></t:dgCol>
             <t:dgCol title="总差价"  field="spinaah" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="60"></t:dgCol>
             <t:dgCol title="税后差价"  field="spinaai" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="58"></t:dgCol>
             <t:dgCol title="税后毛利"  field="spinaaj" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="利息"  field="spinaak" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+            <t:dgCol title="利息"  field="spinaak" queryMode="group"  formatterjs="fix100" extendParams="editor:'text'" width="50"></t:dgCol>
             <t:dgCol title="税后利率"  field="spinaal" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
 
 
             <t:dgCol title="基本工价"  field="spinaam" queryMode="group" formatterjs="fix2" 	  extendParams="editor:'text'" width="58"></t:dgCol>
             <t:dgCol title="工厂系数"  field="spinaan" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="58"></t:dgCol>
             <t:dgCol title="系数工价"  field="spinaao" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="利税"  field="spinaap" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+            <t:dgCol title="利税"  field="spinaap" queryMode="group" formatterjs="fix100"  extendParams="editor:'text'" width="50"></t:dgCol>
             <t:dgCol title="总价"  field="spinaaq" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="50"></t:dgCol>
             <t:dgCol title="总差价"  field="spinaar" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="60"></t:dgCol>
             <t:dgCol title="税后差价"  field="spinaas" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="58"></t:dgCol>
             <t:dgCol title="税后毛利"  field="spinaat" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="利息"  field="spinaau" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="税后利率"  field="spinaav" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
+            <t:dgCol title="利息"  field="spinaau" queryMode="group" formatterjs="fix100"  extendParams="editor:'text'" width="50"></t:dgCol>
+            <t:dgCol title="税后利率"  field="spinaav" queryMode="group" formatterjs="fix100"  extendParams="editor:'text'" width="58"></t:dgCol>
 
 
             <t:dgCol title="折汇率"  field="spinaaw" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="60"></t:dgCol>
@@ -91,16 +91,16 @@
             <t:dgCol title="2"  field="spinaay" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="50"></t:dgCol>
             <t:dgCol title="A"  field="spinaaz" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" extend="{style:'width:34'}" width="50"></t:dgCol>
 
-            <t:dgCol title="日期"  field="spinaba" queryMode="group"   formatter="yyyy-MM-dd" extendParams="editor:'datebox'" width="50"></t:dgCol>
+            <t:dgCol title="日期"  field="spinaba" queryMode="group"   formatter="yyyy-MM-dd" extendParams="editor:'datebox'" width="90"></t:dgCol>
             <t:dgCol title="1"  field="spinabb" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
             <t:dgCol title="修正"  field="spinabc" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
 
 
 
-            <t:dgToolBar operationCode="add" title="录入" icon="icon-add"  funname="addRow"></t:dgToolBar>
-            <t:dgToolBar operationCode="edit" title="编辑" icon="icon-edit"  funname="editRow"></t:dgToolBar>
-            <t:dgToolBar operationCode="save" title="保存" icon="icon-save" url="bdSpinController.do?saveRows" funname="saveDatas" ></t:dgToolBar>
-            <t:dgToolBar operationCode="undo" title="取消编辑" icon="icon-undo" funname="reject"></t:dgToolBar>
+            <t:dgToolBar  title="录入" icon="icon-add"  funname="addRow"></t:dgToolBar>
+            <t:dgToolBar  title="编辑" icon="icon-edit"  funname="editRow"></t:dgToolBar>
+            <t:dgToolBar  title="保存" icon="icon-save" url="bdSpinController.do?saveRows" funname="saveDatas" ></t:dgToolBar>
+            <t:dgToolBar  title="取消编辑" icon="icon-undo" funname="reject"></t:dgToolBar>
             <t:dgToolBar title="批量删除"  icon="icon-remove" url="bdSpinController.do?doBatchDel" funname="deleteALLSelect"></t:dgToolBar>
         </t:datagrid>
     </div>
@@ -173,12 +173,21 @@
         $('#'+gname).datagrid('clearChecked');
         $('#'+gname).datagrid('rejectChanges');
     }
+    function fix(x,row,index){
+        var f = parseFloat(x);
+        if (isNaN(f)) {
+            return "";
+        }
+        var f = Math.round(x);
+        var s = f.toString();
+        return s;
+    }
     function fix1(x,row,index){
         var f = parseFloat(x);
         if (isNaN(f)) {
             return "";
         }
-        var f = Math.round(x*100)/100;
+        var f = Math.round(x*10)/10;
         var s = f.toString();
         var rs = s.indexOf('.');
         if (rs < 0) {
@@ -212,7 +221,7 @@
         if (isNaN(f)) {
             return "";
         }
-        var f = Math.round(x*100)/100;
+        var f = Math.round(x*1000)/1000;
         var s = f.toString();
         var rs = s.indexOf('.');
         if (rs < 0) {
@@ -225,4 +234,11 @@
         return s;
     }
 
+    function fix100(x,row,index) {
+        var f = parseFloat(x);
+        if (isNaN(f)) {
+            return "";
+        }
+        return f + "%";
+    }
 </script>

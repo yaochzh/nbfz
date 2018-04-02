@@ -1345,7 +1345,7 @@ public class BdSpinEntity implements java.io.Serializable {
 	 *@return: java.lang.Double  成本合计
 	 */
 
-	@Column(name ="SPINAR",nullable=true,length=15)
+	@Column(name ="SPINAR",scale=2,nullable=true,length=15)
 	public java.lang.Double getSpinar(){
 		return this.spinar;
 	}
