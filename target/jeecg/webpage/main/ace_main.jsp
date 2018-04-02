@@ -62,7 +62,6 @@
 					<a href="#" class="navbar-brand">
 						<small>
 							<i class="icon-leaf"></i>
-							JEECG 微云快速开发平台
 						</small>
 					</a><!-- /.brand -->
 				</div><!-- /.navbar-header -->
@@ -244,13 +243,7 @@
 									</a>
 								</li>
 								
-								<li>
-									<a href="http://yun.jeecg.org" target="_blank">
-										<i class="icon-cloud"></i>
-										 云应用中心
-									</a>
-								</li>
-								
+
 								<li>
 									<a href="javascript:clearLocalstorage()">
 										<i class="icon-cog"></i>
@@ -489,7 +482,7 @@
 		<script src="plug-in/layer/layer.js"></script>
 	    <script src="plug-in/ace/js/bootbox.js"></script>
 		<!--add-start--Author:wangkun Date:20160813 for:内部聊天修改-->
-		<%@include file="/context/layui.jsp"%>
+		<%--<%@include file="/context/layui.jsp"%>--%>
 		<!--add-end--Author:wangkun Date:20160813 for:内部聊天修改-->
 		<!-- inline scripts related to this page -->
 		<script>

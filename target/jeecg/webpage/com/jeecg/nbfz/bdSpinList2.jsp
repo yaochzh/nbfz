@@ -21,44 +21,44 @@
       <t:dgCol title="螺纹" colspan="6" ></t:dgCol>
 	  <t:dgCol title="备注" newColumn="true" rowspan="2" field="spinbai" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
 	
-    <t:dgCol title="克重"  field="spinbe" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="用料M2"  field="spinbf" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="损率"  field="spinbg" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="KG"  field="spinbh" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="单价"  field="spinbi" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="金额"  field="spinbj" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="克重"  field="spinbe" queryMode="group"  formatterjs="fix"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="用料M2"  field="spinbf" queryMode="group"  formatterjs="fix3"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="损率"  field="spinbg" queryMode="group"  formatterjs="fix100"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="KG"  field="spinbh" queryMode="group"  formatterjs="fix3"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="单价"  field="spinbi" queryMode="group"  formatterjs="fix1"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="金额"  field="spinbj" queryMode="group"  formatterjs="fix2"   extendParams="editor:'text'" width="50"></t:dgCol>
 	
 	
-    <t:dgCol title="克重"  field="spinbk" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="用料M2"  field="spinbl" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="损率"  field="spinbm" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="KG"  field="spinbn" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="单价"  field="spinbo" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="金额"  field="spinbp" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="克重"  field="spinbk" queryMode="group"  formatterjs="fix"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="用料M2"  field="spinbl" queryMode="group"  formatterjs="fix3"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="损率"  field="spinbm" queryMode="group"  formatterjs="fix100"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="KG"  field="spinbn" queryMode="group"   formatterjs="fix3" extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="单价"  field="spinbo" queryMode="group"  formatterjs="fix1"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="金额"  field="spinbp" queryMode="group"  formatterjs="fix2" extendParams="editor:'text'" width="50"></t:dgCol>
 	
 	
-    <t:dgCol title="克重"  field="spinbq" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="用料M2"  field="spinbr" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="损率"  field="spinbs" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="KG"  field="spinbt" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="单价"  field="spinbu" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="金额"  field="spinbv" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="克重"  field="spinbq" queryMode="group"  formatterjs="fix"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="用料M2"  field="spinbr" queryMode="group"  formatterjs="fix3" extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="损率"  field="spinbs" queryMode="group"  formatterjs="fix100"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="KG"  field="spinbt" queryMode="group" formatterjs="fix3"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="单价"  field="spinbu" queryMode="group"  formatterjs="fix1"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="金额"  field="spinbv" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="50"></t:dgCol>
 	
 	
-    <t:dgCol title="克重"  field="spinbw" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="用料M2"  field="spinbx" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="损率"  field="spinby" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="KG"  field="spinbz" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="单价"  field="spinbaa" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="金额"  field="spinbab" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="克重"  field="spinbw" queryMode="group"  formatterjs="fix"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="用料M2"  field="spinbx" queryMode="group"  formatterjs="fix3"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="损率"  field="spinby" queryMode="group" formatterjs="fix100"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="KG"  field="spinbz" queryMode="group" formatterjs="fix3"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="单价"  field="spinbaa" queryMode="group"  formatterjs="fix1"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="金额"  field="spinbab" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="50"></t:dgCol>
 	
 	
-    <t:dgCol title="克重"  field="spinbac" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="用料M2"  field="spinbad" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="损率"  field="spinbae" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="KG"  field="spinbaf" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="单价"  field="spinbag" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="金额"  field="spinbah" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="克重"  field="spinbac" queryMode="group" formatterjs="fix"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="用料M2"  field="spinbad" queryMode="group" formatterjs="fix3"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="损率"  field="spinbae" queryMode="group" formatterjs="fix100"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="KG"  field="spinbaf" queryMode="group" formatterjs="fix3" extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="单价"  field="spinbag" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="金额"  field="spinbah" queryMode="group" formatterjs="fix2"  extendParams="editor:'text'" width="50"></t:dgCol>
 	
 	
     <t:dgToolBar operationCode="add" title="录入" icon="icon-add"  funname="addRow"></t:dgToolBar>
@@ -135,4 +135,72 @@
 		$('#'+gname).datagrid('clearChecked');
 		$('#'+gname).datagrid('rejectChanges');
 	}
+    function fix(x,row,index){
+      var f = parseFloat(x);
+      if (isNaN(f)) {
+        return "";
+      }
+      var f = Math.round(x);
+      var s = f.toString();
+      return s;
+    }
+    function fix1(x,row,index){
+      var f = parseFloat(x);
+      if (isNaN(f)) {
+        return "";
+      }
+      var f = Math.round(x*10)/10;
+      var s = f.toString();
+      var rs = s.indexOf('.');
+      if (rs < 0) {
+        rs = s.length;
+        s += '.';
+      }
+      while (s.length <= rs + 1) {
+        s += '0';
+      }
+      return s;
+    }
+    function fix2(x,row,index){
+      var f = parseFloat(x);
+      if (isNaN(f)) {
+        return "";
+      }
+      var f = Math.round(x*100)/100;
+      var s = f.toString();
+      var rs = s.indexOf('.');
+      if (rs < 0) {
+        rs = s.length;
+        s += '.';
+      }
+      while (s.length <= rs + 2) {
+        s += '0';
+      }
+      return s;
+    }
+    function fix3(x,row,index){
+      var f = parseFloat(x);
+      if (isNaN(f)) {
+        return "";
+      }
+      var f = Math.round(x*1000)/1000;
+      var s = f.toString();
+      var rs = s.indexOf('.');
+      if (rs < 0) {
+        rs = s.length;
+        s += '.';
+      }
+      while (s.length <= rs + 3) {
+        s += '0';
+      }
+      return s;
+    }
+
+    function fix100(x,row,index) {
+      var f = parseFloat(x);
+      if (isNaN(f)) {
+        return "";
+      }
+      return f + "%";
+    }
  </script>

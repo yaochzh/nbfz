@@ -19,38 +19,38 @@
       <t:dgCol title="袖/（袖长*袖肥）" colspan="5" ></t:dgCol>
       <t:dgCol title="帽" colspan="4" ></t:dgCol>
       <t:dgCol title="领" colspan="4" ></t:dgCol>
-	  <t:dgCol title="加误率" rowspan="2" field="spindx" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+	  <t:dgCol title="加误率" rowspan="2" field="spindx" queryMode="group"  formatterjs="fix100" extendParams="editor:'text'" width="50"></t:dgCol>
       <t:dgCol title="放版缩率%" colspan="3" ></t:dgCol>
-	  <t:dgCol title="合计M2" rowspan="2" field="spindab" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+	  <t:dgCol title="合计M2" rowspan="2" field="spindab"  formatterjs="fix3" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
       <t:dgCol title="备注" newColumn="true" rowspan="2"  field="spindac" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
 	  
 	  
-    <t:dgCol title="衣长"  field="spindf" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="减"  field="spindg" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="胸围"  field="spindh" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="数量"  field="spindi" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="M2"  field="spindj" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="衣长"  field="spindf" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="减"  field="spindg" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="胸围"  field="spindh" queryMode="group"  formatterjs="fix1"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="数量"  field="spindi" queryMode="group" formatterjs="fix"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="M2"  field="spindj" queryMode="group" formatterjs="fix3"  extendParams="editor:'text'" width="50"></t:dgCol>
 	
-    <t:dgCol title="袖长"  field="spindk" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="减"  field="spindl" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="袖肥"  field="spindm" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="数量"  field="spindn" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="M2"  field="spindo" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="袖长"  field="spindk" queryMode="group" formatterjs="fix1"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="减"  field="spindl" queryMode="group" formatterjs="fix1"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="袖肥"  field="spindm" queryMode="group" formatterjs="fix1"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="数量"  field="spindn" queryMode="group" formatterjs="fix"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="M2"  field="spindo" queryMode="group" formatterjs="fix3"  extendParams="editor:'text'" width="50"></t:dgCol>
 	
-    <t:dgCol title="帽长"  field="spindp" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="帽宽"  field="spindq" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="数量"  field="spindr" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="M2"  field="spinds" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="帽长"  field="spindp" queryMode="group" formatterjs="fix1"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="帽宽"  field="spindq" queryMode="group" formatterjs="fix1"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="数量"  field="spindr" queryMode="group" formatterjs="fix"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="M2"  field="spinds" queryMode="group" formatterjs="fix3"  extendParams="editor:'text'" width="50"></t:dgCol>
 	
-    <t:dgCol title="领宽"  field="spindt" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="领高"  field="spindu" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="数量"  field="spindv" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="M2"  field="spindw" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="领宽"  field="spindt" queryMode="group" formatterjs="fix1"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="领高"  field="spindu" queryMode="group" formatterjs="fix1"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="数量"  field="spindv" queryMode="group" formatterjs="fix"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="M2"  field="spindw" queryMode="group" formatterjs="fix3"  extendParams="editor:'text'" width="50"></t:dgCol>
 	
 	
-    <t:dgCol title="直"  field="spindy" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="横"  field="spindz" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="合计"  field="spindaa" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="直"  field="spindy" queryMode="group"  formatterjs="fix" extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="横"  field="spindz" queryMode="group"   formatterjs="fix" extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="合计"  field="spindaa" queryMode="group"  formatterjs="fix"  extendParams="editor:'text'" width="50"></t:dgCol>
 	     
     <t:dgToolBar operationCode="add" title="录入" icon="icon-add"  funname="addRow"></t:dgToolBar>
     <t:dgToolBar operationCode="edit" title="编辑" icon="icon-edit"  funname="editRow"></t:dgToolBar>
@@ -126,4 +126,72 @@
 		$('#'+gname).datagrid('clearChecked');
 		$('#'+gname).datagrid('rejectChanges');
 	}
+    function fix(x,row,index){
+      var f = parseFloat(x);
+      if (isNaN(f)) {
+        return "";
+      }
+      var f = Math.round(x);
+      var s = f.toString();
+      return s;
+    }
+    function fix1(x,row,index){
+      var f = parseFloat(x);
+      if (isNaN(f)) {
+        return "";
+      }
+      var f = Math.round(x*10)/10;
+      var s = f.toString();
+      var rs = s.indexOf('.');
+      if (rs < 0) {
+        rs = s.length;
+        s += '.';
+      }
+      while (s.length <= rs + 1) {
+        s += '0';
+      }
+      return s;
+    }
+    function fix2(x,row,index){
+      var f = parseFloat(x);
+      if (isNaN(f)) {
+        return "";
+      }
+      var f = Math.round(x*100)/100;
+      var s = f.toString();
+      var rs = s.indexOf('.');
+      if (rs < 0) {
+        rs = s.length;
+        s += '.';
+      }
+      while (s.length <= rs + 2) {
+        s += '0';
+      }
+      return s;
+    }
+    function fix3(x,row,index){
+      var f = parseFloat(x);
+      if (isNaN(f)) {
+        return "";
+      }
+      var f = Math.round(x*1000)/1000;
+      var s = f.toString();
+      var rs = s.indexOf('.');
+      if (rs < 0) {
+        rs = s.length;
+        s += '.';
+      }
+      while (s.length <= rs + 3) {
+        s += '0';
+      }
+      return s;
+    }
+
+    function fix100(x,row,index) {
+      var f = parseFloat(x);
+      if (isNaN(f)) {
+        return "";
+      }
+      return f + "%";
+    }
  </script>

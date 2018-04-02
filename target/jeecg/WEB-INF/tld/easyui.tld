@@ -303,6 +303,12 @@
 			<rtexprvalue>true</rtexprvalue>
 			<description>自定义函数名称(调用页面自定义js方法 参数为(value,row,index)</description>
 		</attribute>
+
+		<attribute>
+			<name>formatterjs</name>
+			<rtexprvalue>true</rtexprvalue>
+			<description>自定义函数名称(调用页面自定义js方法 参数为(value,row,index)</description>
+		</attribute>
 		<attribute>
 			<name>hidden</name>
 			<rtexprvalue>true</rtexprvalue>

@@ -17,29 +17,29 @@
 	     <t:dgCol title="领口罗纹" colspan="4" ></t:dgCol>
       <t:dgCol title="下摆/腰罗纹" colspan="4" ></t:dgCol>
       <t:dgCol title="袖/脚口罗纹" colspan="4" ></t:dgCol>
-	  <t:dgCol title="加误率" rowspan="2" field="spingr" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+	  <t:dgCol title="加误率" rowspan="2" field="spingr" queryMode="group" formatterjs="fix100"  extendParams="editor:'text'" width="50"></t:dgCol>
       <t:dgCol title="放版缩率%" colspan="3" ></t:dgCol>
-	  <t:dgCol title="合计M2" rowspan="2" field="spingv" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+	  <t:dgCol title="合计M2" rowspan="2" field="spingv" queryMode="group" formatterjs="fix3"  extendParams="editor:'text'" width="50"></t:dgCol>
       <t:dgCol title="备注" newColumn="true" rowspan="2"  field="spingw" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
 	  
-    <t:dgCol title="领宽"  field="spingf" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="领高"  field="spingg" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="数量"  field="spingh" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="M2"  field="spingi" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="领宽"  field="spingf" queryMode="group" formatterjs="fix1"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="领高"  field="spingg" queryMode="group" formatterjs="fix1"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="数量"  field="spingh" queryMode="group" formatterjs="fix"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="M2"  field="spingi" queryMode="group" formatterjs="fix3"  extendParams="editor:'text'" width="50"></t:dgCol>
 	
-    <t:dgCol title="12宽"  field="spingj" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="高"  field="spingk" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="数量"  field="spingl" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="M2"  field="spingm" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="12宽"  field="spingj" queryMode="group" formatterjs="fix1"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="高"  field="spingk" queryMode="group"  formatterjs="fix1" extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="数量"  field="spingl" queryMode="group" formatterjs="fix"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="M2"  field="spingm" queryMode="group" formatterjs="fix3"  extendParams="editor:'text'" width="50"></t:dgCol>
 	
-    <t:dgCol title="12宽"  field="spingn" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="高"  field="spingo" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="数量"  field="spingp" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="M2"  field="spingq" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="12宽"  field="spingn" queryMode="group" formatterjs="fix1"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="高"  field="spingo" queryMode="group" formatterjs="fix1"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="数量"  field="spingp" queryMode="group" formatterjs="fix"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="M2"  field="spingq" queryMode="group"  formatterjs="fix3" extendParams="editor:'text'" width="50"></t:dgCol>
 	
-    <t:dgCol title="直"  field="spings" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="横"  field="spingt" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
-    <t:dgCol title="合计"  field="spingu" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="直"  field="spings" queryMode="group" formatterjs="fix"  extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="横"  field="spingt" queryMode="group"  formatterjs="fix" extendParams="editor:'text'" width="50"></t:dgCol>
+    <t:dgCol title="合计"  field="spingu" queryMode="group" formatterjs="fix"  extendParams="editor:'text'" width="50"></t:dgCol>
 	
     <t:dgToolBar operationCode="add" title="录入" icon="icon-add"  funname="addRow"></t:dgToolBar>
     <t:dgToolBar operationCode="edit" title="编辑" icon="icon-edit"  funname="editRow"></t:dgToolBar>
@@ -115,4 +115,72 @@
 		$('#'+gname).datagrid('clearChecked');
 		$('#'+gname).datagrid('rejectChanges');
 	}
+    function fix(x,row,index){
+        var f = parseFloat(x);
+        if (isNaN(f)) {
+            return "";
+        }
+        var f = Math.round(x);
+        var s = f.toString();
+        return s;
+    }
+    function fix1(x,row,index){
+        var f = parseFloat(x);
+        if (isNaN(f)) {
+            return "";
+        }
+        var f = Math.round(x*10)/10;
+        var s = f.toString();
+        var rs = s.indexOf('.');
+        if (rs < 0) {
+            rs = s.length;
+            s += '.';
+        }
+        while (s.length <= rs + 1) {
+            s += '0';
+        }
+        return s;
+    }
+    function fix2(x,row,index){
+        var f = parseFloat(x);
+        if (isNaN(f)) {
+            return "";
+        }
+        var f = Math.round(x*100)/100;
+        var s = f.toString();
+        var rs = s.indexOf('.');
+        if (rs < 0) {
+            rs = s.length;
+            s += '.';
+        }
+        while (s.length <= rs + 2) {
+            s += '0';
+        }
+        return s;
+    }
+    function fix3(x,row,index){
+        var f = parseFloat(x);
+        if (isNaN(f)) {
+            return "";
+        }
+        var f = Math.round(x*1000)/1000;
+        var s = f.toString();
+        var rs = s.indexOf('.');
+        if (rs < 0) {
+            rs = s.length;
+            s += '.';
+        }
+        while (s.length <= rs + 3) {
+            s += '0';
+        }
+        return s;
+    }
+
+    function fix100(x,row,index) {
+        var f = parseFloat(x);
+        if (isNaN(f)) {
+            return "";
+        }
+        return f + "%";
+    }
  </script>

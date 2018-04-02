@@ -3,15 +3,15 @@
 <%@include file="/context/mytags.jsp"%>
 <t:base type="jquery,easyui,tools,DatePicker,autocomplete"></t:base>
 <div>
-	<t:tabs id="tabsOne" iframe="true" tabPosition="top" fit="false"  heigth="500">
-		<t:tab href="bdSpinController.do?list&type=1" icon="icon-cut" title="汇总" id="tab1" heigth="800"></t:tab>
-		<t:tab href="bdSpinController.do?list&type=2" icon="icon-cut" title="面里料汇总" id="tab2" heigth="800"></t:tab>
-		<t:tab href="bdSpinController.do?list&type=3" icon="icon-cut" title="面料1用量" id="tab3" heigth="800"></t:tab>
-		<t:tab href="bdSpinController.do?list&type=4" icon="icon-cut" title="面料2用量" id="tab4" heigth="800"></t:tab>
-		<t:tab href="bdSpinController.do?list&type=5" icon="icon-cut" title="里料1用量 " id="tab5" heigth="800"></t:tab>
-		<t:tab href="bdSpinController.do?list&type=6" icon="icon-cut" title="里料2用量" id="tab6" heigth="800"></t:tab>
-		<t:tab href="bdSpinController.do?list&type=7" icon="icon-cut" title="罗纹用量" id="tab7" heigth="800"></t:tab>
-		<t:tab href="bdSpinController.do?list&type=8" icon="icon-cut" title="辅料汇总" id="tab8" heigth="800"></t:tab>
+	<t:tabs id="tabsOne" iframe="true" tabPosition="top" fit="false"  heigth="530">
+		<t:tab href="bdSpinController.do?list&type=1" icon="icon-cut" title="汇总" id="tab1"></t:tab>
+		<t:tab href="bdSpinController.do?list&type=2" icon="icon-cut" title="面里料汇总" id="tab2" ></t:tab>
+		<t:tab href="bdSpinController.do?list&type=3" icon="icon-cut" title="面料1用量" id="tab3"></t:tab>
+		<t:tab href="bdSpinController.do?list&type=4" icon="icon-cut" title="面料2用量" id="tab4" ></t:tab>
+		<t:tab href="bdSpinController.do?list&type=5" icon="icon-cut" title="里料1用量 " id="tab5" ></t:tab>
+		<t:tab href="bdSpinController.do?list&type=6" icon="icon-cut" title="里料2用量" id="tab6"></t:tab>
+		<t:tab href="bdSpinController.do?list&type=7" icon="icon-cut" title="罗纹用量" id="tab7" ></t:tab>
+		<t:tab href="bdSpinController.do?list&type=8" icon="icon-cut" title="辅料汇总" id="tab8" ></t:tab>
 	</t:tabs>
 </div>
 

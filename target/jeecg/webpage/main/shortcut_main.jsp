@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="plug-in/easyui/portal/portal.css">
 <!-- add-end--Author:jg_renjie  Date:20160315 for：配合首页改造，引入portal依赖的js及css文件 -->
 <!--add-start--Author:wangkun Date:20160813 for:内部聊天修改-->
-<%@include file="/context/layui.jsp"%>
+<%--<%@include file="/context/layui.jsp"%>--%>
 <!--add-end--Author:wangkun Date:20160813 for:内部聊天修改-->
 <link rel="shortcut icon" href="images/favicon.ico">
 <style type="text/css">
@@ -222,9 +222,7 @@ a:hover {
                             <div onclick="add('<t:mutiLang langKey="common.change.style"/>','userController.do?changestyle','',550,200)">
                                 <t:mutiLang langKey="common.change.style"/>
                             </div>
-                            <div onclick="window.open('http://yun.jeecg.org')">
-                       		 	云应用中心
-                   			 </div>
+
                              <div onclick="clearLocalstorage()">
                        		 	<t:mutiLang langKey="common.clear.localstorage"/>
                    			 </div>
@@ -309,9 +307,9 @@ a:hover {
     <div align="center" style="color: #1fa3e5; padding-top: 2px">&copy;
         <t:mutiLang langKey="common.copyright"/>
         <span class="tip">
-            <a href="http://www.jeecg.org" title="JEECG Framework  <t:mutiLang langKey="system.version.number"/>">JEECG Framework  <t:mutiLang langKey="system.version.number"/></a>
-            (推荐谷歌浏览器，获得更快响应速度) 技术支持:
-            <a href="#" title="JEECG Framework  <t:mutiLang langKey="system.version.number"/>">JEECG Framework  <t:mutiLang langKey="system.version.number"/></a>
+            <%--<a href="http://www.jeecg.org" title="JEECG Framework  <t:mutiLang langKey="system.version.number"/>">JEECG Framework  <t:mutiLang langKey="system.version.number"/></a>--%>
+            <%--(推荐谷歌浏览器，获得更快响应速度) 技术支持:--%>
+            <%--<a href="#" title="JEECG Framework  <t:mutiLang langKey="system.version.number"/>">JEECG Framework  <t:mutiLang langKey="system.version.number"/></a>--%>
         </span>
     </div>
 </div>
