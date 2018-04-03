@@ -3,7 +3,7 @@
 <%@include file="/context/mytags.jsp"%>
 <t:base type="jquery,easyui,tools,DatePicker,autocomplete"></t:base>
 <div>
-	<t:tabs id="tabsOne" iframe="true" tabPosition="top" fit="false"  heigth="500">
+	<t:tabs id="tabsOne" iframe="true" tabPosition="top" fit="false"  heigth="520">
 		<t:tab href="bdSpinController.do?list&type=1" icon="icon-cut" title="汇总" id="tab1" heigth="800"></t:tab>
 		<t:tab href="bdSpinController.do?list&type=2" icon="icon-cut" title="面里料汇总" id="tab2" heigth="800"></t:tab>
 		<t:tab href="bdSpinController.do?list&type=3" icon="icon-cut" title="面料1用量" id="tab3" heigth="800"></t:tab>

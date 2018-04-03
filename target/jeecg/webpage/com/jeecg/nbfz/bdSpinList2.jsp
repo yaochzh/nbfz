@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/context/mytags.jsp"%>
 <t:base type="jquery,easyui,tools,DatePicker,autocomplete"></t:base>
+<style>
+  .datagrid-cell{
+    margin: 2px;
+    padding: 2px;
+    overflow: hidden;
+    height: 30px;
+    line-height: 13px;
+    font-size: 12px;
+    word-wrap: break-word;
+    white-space: nowrap;
+  }
+</style>
 <div class="easyui-layout" fit="true">
   <div region="center" style="padding:0px;border:0px">
   <t:datagrid name="bdSpinrowList" checkbox="true"  pagination="true" fitColumns="false" height="500"
@@ -11,7 +23,7 @@
       <t:dgCol title="订单序号" rowspan="2" query= "true" frozenColumn="true" field="spinac"    extendParams="editor:'text'" width="60"></t:dgCol>
       <t:dgCol title="款号" rowspan="2" query= "true" frozenColumn="true" field="spinad"  extendParams="editor:'text'" width="50"></t:dgCol>
       <t:dgCol title="款式/名" rowspan="2" frozenColumn="true" field="spinae" queryMode="group"   extendParams="editor:'text'" width="60"></t:dgCol>
-      <t:dgCol title="面料类型" rowspan="2" frozenColumn="true" field="mllx" queryMode="group"   dictionary="mllx" extendParams="editor:'combobox'" width="58"></t:dgCol>
+      <t:dgCol title="面料</br>类型" rowspan="2" frozenColumn="true" field="mllx" queryMode="group"   dictionary="mllx" extendParams="editor:'combobox'" width="50"></t:dgCol>
 	
 	
       <t:dgCol title="面料1" colspan="6" ></t:dgCol>
@@ -59,12 +71,13 @@
     <t:dgCol title="KG"  field="spinbaf" queryMode="group" formatterjs="fix3" extendParams="editor:'text'" width="50"></t:dgCol>
     <t:dgCol title="单价"  field="spinbag" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="50"></t:dgCol>
     <t:dgCol title="金额"  field="spinbah" queryMode="group" formatterjs="fix2"  extendParams="editor:'text'" width="50"></t:dgCol>
-	
-	
-    <t:dgToolBar operationCode="add" title="录入" icon="icon-add"  funname="addRow"></t:dgToolBar>
-    <t:dgToolBar operationCode="edit" title="编辑" icon="icon-edit"  funname="editRow"></t:dgToolBar>
-    <t:dgToolBar operationCode="save" title="保存" icon="icon-save" url="bdSpinController.do?saveRows" funname="saveData"></t:dgToolBar>
-    <t:dgToolBar operationCode="undo" title="取消编辑" icon="icon-undo" funname="reject"></t:dgToolBar>
+
+
+
+    <t:dgToolBar  title="录入" icon="icon-add"  funname="addRow"></t:dgToolBar>
+    <t:dgToolBar  title="编辑" icon="icon-edit"  funname="editRow"></t:dgToolBar>
+    <t:dgToolBar  title="保存" icon="icon-save" url="bdSpinController.do?saveRows" funname="saveDatas" ></t:dgToolBar>
+    <t:dgToolBar  title="取消编辑" icon="icon-undo" funname="reject"></t:dgToolBar>
     <t:dgToolBar title="批量删除"  icon="icon-remove" url="bdSpinController.do?doBatchDel" funname="deleteALLSelect"></t:dgToolBar>
   </t:datagrid>
   </div>

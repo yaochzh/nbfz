@@ -141,7 +141,7 @@ public class BdSpinServiceImpl extends CommonServiceImpl implements BdSpinServic
         if (DoubleUtil.isOK(t.getSpinaaj(), t.getSpinaag()) && t.getSpinaag().compareTo(Double.valueOf("0")) > 0) {
             t.setSpinaal(DoubleUtil.div(t.getSpinaaj(), t.getSpinaag(), 2) * 100);
         }
-        //am=AO4/AN4
+       /* //am=AO4/AN4
         if (DoubleUtil.isOK(t.getSpinaao(), t.getSpinaan()) && t.getSpinaan().compareTo(Double.valueOf("0")) > 0) {
             t.setSpinaam(DoubleUtil.div(t.getSpinaao(), t.getSpinaan(), 2));
         }
@@ -164,7 +164,7 @@ public class BdSpinServiceImpl extends CommonServiceImpl implements BdSpinServic
         //av=AT4/AQ4
         if (DoubleUtil.isOK(t.getSpinaat(), t.getSpinaaq()) && t.getSpinaaq().compareTo(Double.valueOf(0)) > 0) {
             t.setSpinaav(DoubleUtil.div(t.getSpinaat(), t.getSpinaaq()) * 100);
-        }
+        }*/
         //ax=X4/AW4
         if (DoubleUtil.isOK(t.getSpinax(), t.getSpinaaw()) && t.getSpinaaw().compareTo(Double.valueOf(0)) > 0) {
             t.setSpinaax(DoubleUtil.div(t.getSpinax(), t.getSpinaaw(), 2));
@@ -174,9 +174,9 @@ public class BdSpinServiceImpl extends CommonServiceImpl implements BdSpinServic
             t.setSpinaay(DoubleUtil.div(t.getSpinaag(), t.getSpinaaw(), 2));
         }
         //aaz=AQ4/AW4
-        if (DoubleUtil.isOK(t.getSpinaaq(), t.getSpinaaw()) && t.getSpinaaw().compareTo(Double.valueOf(0)) > 0) {
-            t.setSpinaaz(DoubleUtil.div(t.getSpinaaq(), t.getSpinaaw(), 2));
-        }
+//        if (DoubleUtil.isOK(t.getSpinaaq(), t.getSpinaaw()) && t.getSpinaaw().compareTo(Double.valueOf(0)) > 0) {
+//            t.setSpinaaz(DoubleUtil.div(t.getSpinaaq(), t.getSpinaaw(), 2));
+//        }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////里面料汇总B
         //bh=F4/E4*100/(1-G4)
         if (DoubleUtil.isOK(t.getSpinbf(), t.getSpinbe(), t.getSpinbg()) && t.getSpinbe().compareTo(Double.valueOf(0)) > 0) {

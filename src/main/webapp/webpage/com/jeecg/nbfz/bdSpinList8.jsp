@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/context/mytags.jsp"%>
 <t:base type="jquery,easyui,tools,DatePicker,autocomplete"></t:base>
+<style>
+    .datagrid-cell{
+        margin: 2px;
+        padding: 2px;
+        overflow: hidden;
+        height: 30px;
+        line-height: 13px;
+        font-size: 12px;
+        word-wrap: break-word;
+        white-space: nowrap;
+    }
+</style>
 <div class="easyui-layout" fit="true">
   <div region="center" style="padding:0px;border:0px">
   <t:datagrid name="bdSpinrowList" checkbox="true"  pagination="true" fitColumns="false" height="500"

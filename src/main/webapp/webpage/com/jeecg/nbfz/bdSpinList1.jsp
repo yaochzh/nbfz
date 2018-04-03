@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/context/mytags.jsp"%>
 <t:base type="jquery,easyui,tools,DatePicker,autocomplete"></t:base>
+<style>
+    .datagrid-cell{
+        margin: 2px;
+        padding: 2px;
+        overflow: hidden;
+        height: 30px;
+        line-height: 13px;
+        font-size: 12px;
+        word-wrap: break-word;
+        white-space: nowrap;
+    }
+</style>
 <div class="easyui-layout" fit="true">
     <div region="center" style="padding:0px;border:0px">
         <t:datagrid name="bdSpinrowList" checkbox="true"  pagination="true" fitColumns="false"  nowrap="false"
@@ -25,9 +37,9 @@
             <t:dgCol title="基本" colspan="2"></t:dgCol>
             <t:dgCol title="外省域-1" colspan="10"></t:dgCol>
             <t:dgCol title="本区域-2" colspan="9"></t:dgCol>
-            <t:dgCol title="本区域-3" colspan="10"></t:dgCol>
+            <%--<t:dgCol title="本区域-3" colspan="10"></t:dgCol>--%>
             <t:dgCol title="FOB/USD" colspan="4"></t:dgCol>
-            <t:dgCol title="客户确认" colspan="3"></t:dgCol>
+            <t:dgCol title="客户确认" colspan="2"></t:dgCol>
             <t:dgCol title="备注" rowspan="2" newColumn="true" field="spinabd" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
 
 
@@ -48,7 +60,7 @@
 
 
             <t:dgCol title="成本合计"  field="spinar" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="本区域工价"  field="spinas" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="58"></t:dgCol>
+            <t:dgCol title="本区域</br>工价" field="spinas" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="58"></t:dgCol>
 
 
             <t:dgCol title="区域系数"  field="spinat" queryMode="group"  formatterjs="fix100"     extendParams="editor:'text'" width="58"></t:dgCol>
@@ -74,22 +86,22 @@
             <t:dgCol title="税后利率"  field="spinaal" queryMode="group"   extendParams="editor:'text'" width="58"></t:dgCol>
 
 
-            <t:dgCol title="基本工价"  field="spinaam" queryMode="group" formatterjs="fix2" 	  extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="工厂系数"  field="spinaan" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="系数工价"  field="spinaao" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="利税"  field="spinaap" queryMode="group" formatterjs="fix100"  extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="总价"  field="spinaaq" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="总差价"  field="spinaar" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="60"></t:dgCol>
-            <t:dgCol title="税后差价"  field="spinaas" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="税后毛利"  field="spinaat" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="58"></t:dgCol>
-            <t:dgCol title="利息"  field="spinaau" queryMode="group" formatterjs="fix100"  extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="税后利率"  field="spinaav" queryMode="group" formatterjs="fix100"  extendParams="editor:'text'" width="58"></t:dgCol>
+            <%--<t:dgCol title="基本工价"  field="spinaam" queryMode="group" formatterjs="fix2" 	  extendParams="editor:'text'" width="58"></t:dgCol>--%>
+            <%--<t:dgCol title="工厂系数"  field="spinaan" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="58"></t:dgCol>--%>
+            <%--<t:dgCol title="系数工价"  field="spinaao" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="58"></t:dgCol>--%>
+            <%--<t:dgCol title="利税"  field="spinaap" queryMode="group" formatterjs="fix100"  extendParams="editor:'text'" width="50"></t:dgCol>--%>
+            <%--<t:dgCol title="总价"  field="spinaaq" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="50"></t:dgCol>--%>
+            <%--<t:dgCol title="总差价"  field="spinaar" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="60"></t:dgCol>--%>
+            <%--<t:dgCol title="税后差价"  field="spinaas" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="58"></t:dgCol>--%>
+            <%--<t:dgCol title="税后毛利"  field="spinaat" queryMode="group" formatterjs="fix2"   extendParams="editor:'text'" width="58"></t:dgCol>--%>
+            <%--<t:dgCol title="利息"  field="spinaau" queryMode="group" formatterjs="fix100"  extendParams="editor:'text'" width="50"></t:dgCol>--%>
+            <%--<t:dgCol title="税后利率"  field="spinaav" queryMode="group" formatterjs="fix100"  extendParams="editor:'text'" width="58"></t:dgCol>--%>
 
 
             <t:dgCol title="折汇率"  field="spinaaw" queryMode="group" formatterjs="fix1"   extendParams="editor:'text'" width="60"></t:dgCol>
             <t:dgCol title="1"  field="spinaax" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="50"></t:dgCol>
             <t:dgCol title="2"  field="spinaay" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" width="50"></t:dgCol>
-            <t:dgCol title="A"  field="spinaaz" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" extend="{style:'width:34'}" width="50"></t:dgCol>
+            <%--<t:dgCol title="A"  field="spinaaz" queryMode="group"  formatterjs="fix2"  extendParams="editor:'text'" extend="{style:'width:34'}" width="50"></t:dgCol>--%>
 
             <t:dgCol title="日期"  field="spinaba" queryMode="group"   formatter="yyyy-MM-dd" extendParams="editor:'datebox'" width="90"></t:dgCol>
             <t:dgCol title="1"  field="spinabb" queryMode="group"   extendParams="editor:'text'" width="50"></t:dgCol>
@@ -111,7 +123,7 @@
         $('#'+gname).datagrid('appendRow',{});
         var editIndex = $('#'+gname).datagrid('getRows').length-1;
         $('#'+gname).datagrid('selectRow', editIndex)
-                .datagrid('beginEdit', editIndex);
+            .datagrid('beginEdit', editIndex);
     }
     //保存数据
     function saveDatas(title,addurl,gname){
